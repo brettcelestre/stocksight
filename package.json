@@ -4,7 +4,8 @@
   "description": "Keep all of your stocks within sight",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node"
   },
   "repository": {
     "type": "git",
