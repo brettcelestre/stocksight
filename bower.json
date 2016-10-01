@@ -1,0 +1,21 @@
+{
+  "name": "stocksight",
+  "description": "Keep all of your stocks within sight",
+  "main": "index.js",
+  "authors": [
+    "Brett Celestre"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "stock"
+  ],
+  "homepage": "https://github.com/brettcelestre/stocksight",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ]
+}

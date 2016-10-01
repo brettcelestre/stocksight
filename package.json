@@ -1,0 +1,29 @@
+{
+  "name": "stocksight",
+  "version": "1.0.0",
+  "description": "Keep all of your stocks within sight",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettcelestre/stocksight.git"
+  },
+  "keywords": [
+    "stock"
+  ],
+  "author": "Brett Celestre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brettcelestre/stocksight/issues"
+  },
+  "homepage": "https://github.com/brettcelestre/stocksight#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "mongoose": "^4.6.2",
+    "morgan": "^1.7.0"
+  }
+}
