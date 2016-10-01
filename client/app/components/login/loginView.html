@@ -1,0 +1,10 @@
+<div ng-controller='LoginController'>
+  <form ng-submit='userLogin()' name='login'>
+    <input type='text' ng-model='username' placeholder='Username'>
+    <input type='password' ng-model='password' placeholder='Password'>
+    <button type='submit' ng-click='userLogin()'>Login</button>
+  </form>
+  <p>- Or -</p>
+  <button type='button' ng-click='signupView()'>Sign Up</button>
+  <h3>login view</h3>
+</div>
