@@ -4,7 +4,7 @@ var signupController = require('./signupController.js');
 
 module.exports = function(app) {
 
-  app.route('/signup')
+  app.route('/')
     .post(signupController.signup)
 
 };

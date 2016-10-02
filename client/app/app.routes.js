@@ -43,7 +43,7 @@ angular.module('appRoutes', [])
       views: {
         'portal': {
           templateUrl: 'app/components/signup/signupView.html',
-          controller: 'SignUpController'
+          controller: 'SignupController'
         }
       }
     })
