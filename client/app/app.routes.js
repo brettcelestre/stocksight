@@ -48,20 +48,20 @@ angular.module('appRoutes', [])
       }
     })
     
-    // .state('main', {
-    //   url: '/main',
-    //   views: {
-    //     'main': {
-    //       templateUrl: 'app/components/main/mainView.html',
-    //       controller: 'MainController'
-    //     }
-    //   }
-    // })
+    .state('main', {
+      url: '/main',
+      views: {
+        'main': {
+          templateUrl: 'app/components/main/mainView.html',
+          controller: 'MainController'
+        }
+      }
+    })
     
 }])
 
-.run(['$rootScope', '$state', '$stateParams',
-  function ($rootScope, $state, $stateParams) {
+.run(['$rootScope', '$state', '$stateParams', 'Main',
+  function ($rootScope, $state, $stateParams, Main) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     
@@ -71,16 +71,17 @@ angular.module('appRoutes', [])
       if(aac = toState && toState.params && toState.params.autoActivateChild) {
         $state.go(aac);
       }
-
     });
     
-    // Main.currentUser().then(function(data) {
-    //   if (data.data.username) {
-    //     $state.go('main');
-    //   }
-    // });
-    
-    // Search
-    // console.log('RUN Search.searchTerm: ', Search.searchTerm);
-    
+    // Checks to verify whether someone is logged in
+    Main.checkSession()
+      .then(function(data) {
+        // If someone is logged in
+        if (data.data.user) {
+          console.log('You are logged in as: ', data.data.user);
+          // Switches state to main
+          $state.go('main');
+        }
+      });
+      
 }]);

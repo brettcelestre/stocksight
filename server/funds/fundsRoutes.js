@@ -1,4 +1,4 @@
-var server = require('../server.js');
+// var server = require('../server.js');
 
 module.exports = function(app) {
 

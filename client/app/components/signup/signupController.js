@@ -25,15 +25,15 @@ angular.module('StockSight.signup', [])
         .then(function(data) {
           console.log('signupController.js data from api: ', data);
           
-          // // Success message
-          // if ( data.statusText == 'Created' ) {
-          //   // Change State to Questions / or quick tour slides
-          //   $state.go('main');
-          // // Failure message
-          // } else {
-          //   // Display 'Username already taken'
-          //   alert('sorry something went wrong');
-          // }
+          // Success message
+          if ( data.statusText == 'Created' ) {
+            // Change State to Questions / or quick tour slides
+            $state.go('main');
+          // Failure message
+          } else {
+            // Display 'Username already taken'
+            alert('sorry something went wrong');
+          }
             
         })
         .catch(function(data) {
