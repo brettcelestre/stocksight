@@ -8,6 +8,11 @@ angular.module('StockSight.main', [])
   $scope.username = '';
   $scope.symbol = [];
   
+  $scope.logout = function(){
+    Main.logout();
+    $state.go('home');
+  };
+  
   $scope.init = function() {
     console.log('Main controller init ran: ');
     console.log('Main Controller username: ', Main.userObject.username);

@@ -10,9 +10,9 @@ module.exports = function(app) {
 
   // Login user
   app.route('/login')
-    .post(function(req, res) {
-      console.log('auth/login:POST - req.body: ', req.body);
-      
-    });
+    .post(authController.login);
+    
+  app.route('/logout')
+    .get(authController.logout);
 
 };

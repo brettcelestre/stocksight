@@ -11,12 +11,11 @@ angular.module('StockSight.main.service', [])
   
   // Sends accountInfo to /auth/signup/ route
   var checkSession = function(data) {
-    console.log('signupService.js data: ', data);
     return $http({
       method: 'GET',
       url: '/auth/checksession',
     }).then(function(data) {
-      // Updates userObject
+      // Updates Main service userObject
       userObject.username = data.data.user;
       userObject.symbol = data.data.symbol;
       return data;
@@ -24,10 +23,22 @@ angular.module('StockSight.main.service', [])
       return error;
     });
   };
+  
+  var logout = function() {
+    return $http({
+      method: 'GET',
+      url: '/auth/logout'
+    }).then(function(data){
+      return data;
+    }, function(error) {
+      return error; 
+    });
+  };
 
   return {
     userObject: userObject,
-    checkSession: checkSession
+    checkSession: checkSession,
+    logout: logout
   };
   
 });

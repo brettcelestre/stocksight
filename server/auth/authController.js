@@ -25,6 +25,14 @@ module.exports = {
   
   login: function(req, res) {
     console.log('login ran | req.body: ', req.body);
+  },
+  
+  // Logout user and destroy session
+  logout: function(req, res) {
+    console.log('logout ran');
+    req.session.destroy(function() {
+      res.redirect('/');
+    });
   }
   
 };
