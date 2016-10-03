@@ -29,6 +29,9 @@ angular.module('StockSight.main.service', [])
       method: 'GET',
       url: '/auth/logout'
     }).then(function(data){
+      // Clears Main service userObject
+      userObject.username = '';
+      userObject.symbol = [];
       return data;
     }, function(error) {
       return error; 

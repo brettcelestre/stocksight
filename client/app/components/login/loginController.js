@@ -1,7 +1,7 @@
 
 angular.module('StockSight.login', [])
 
-.controller('LoginController', function($scope, $state, Login) {
+.controller('LoginController', function($scope, $state, Login, Main) {
 
   $scope.username = '';
   $scope.password = '';
@@ -13,12 +13,16 @@ angular.module('StockSight.login', [])
       username: $scope.username,
       password: $scope.password
     };
-    console.log('Login user data: ', userData);
     // Calls login service and sends user data
     Login.login(userData)
       .then(function(data){
-        console.log('Login.login .then data: ', data);
-        
+        // If successful login
+        if (data.status === 200) {
+          // Switches state to main
+          $state.go('main');
+        } else {
+          // Display error
+        }
       })
       .catch(function(data){
         console.error('Error with login: ', data);

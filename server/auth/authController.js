@@ -24,7 +24,31 @@ module.exports = {
   },
   
   login: function(req, res) {
-    console.log('login ran | req.body: ', req.body);
+    var username = req.body.username,
+        plainPassword = req.body.password;
+    // Searches database for this user
+    User.findOne({username: username})
+      .exec(function(err, user) {
+        if (!user) {
+          res.status(404).send({error: 'User not found'});
+        } else {
+          // Checks if password matches encrypted password in database
+          return user.comparePasswords(plainPassword)
+            .then(function(foundUser) {
+              if (!foundUser) {
+                res.status(404).send({error: 'password does not match'});
+              } else {
+                // Regenerates new session
+                req.session.regenerate(function() {
+                // Sets session to this user
+                req.session.user = user;
+                // Sends back only username and symbol
+                res.send({username: user.username, symbol: user.symbol});
+              });
+              }
+            });
+        }
+      })
   },
   
   // Logout user and destroy session
