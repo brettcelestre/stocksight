@@ -12,9 +12,10 @@ module.exports = {
               console.error(err);
             } else {
               req.session.user = user;
+              console.log('user.symbol: ', user.symbol);
               var currentUser = {
                 user: user['username'],
-                stock: user['symbol']
+                stocks: user['symbol']
               }
               console.log('currentUser: ', currentUser);
               res.send(currentUser);
