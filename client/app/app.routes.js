@@ -48,8 +48,13 @@ angular.module('appRoutes', [])
       }
     })
     
+    // Main view after logging in
     .state('main', {
       url: '/main',
+      params: { 
+        // Sets default children views
+        autoActivateChild: 'main.general'
+      },
       views: {
         'main': {
           templateUrl: 'app/components/main/mainView.html',
@@ -58,6 +63,23 @@ angular.module('appRoutes', [])
       }
     })
     
+    // Children views for main
+    .state('main.general', {
+      parent: 'main',
+      views: {
+        // Sidebar view for controlling stock symbols
+        'sidebar@main': {
+          templateUrl: 'app/shared/sidebar/sidebarView.html',
+          controller: 'SidebarController'
+        },
+        // Chart view for display stock data
+        'chart@main': {
+          templateUrl: 'app/shared/chart/chartView.html',
+          controller: 'ChartController'
+        }
+      }
+    });
+
 }])
 
 .run(['$rootScope', '$state', '$stateParams', 'Main',
@@ -68,7 +90,7 @@ angular.module('appRoutes', [])
     // Listens and invokes anonymous function each for any state change
     $rootScope.$on('$stateChangeSuccess', function(event, toState) {
       var aac;
-      if(aac = toState && toState.params && toState.params.autoActivateChild) {
+      if (aac = toState && toState.params && toState.params.autoActivateChild) {
         $state.go(aac);
       }
     });

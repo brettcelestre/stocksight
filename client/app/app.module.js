@@ -7,5 +7,7 @@ angular.module('StockSight', [
   'StockSight.signup',
   'StockSight.signup.service',
   'StockSight.main.service',
-  'StockSight.main'
+  'StockSight.main',
+  'StockSight.main.chart',
+  'StockSight.main.sidebar'
 ]);
