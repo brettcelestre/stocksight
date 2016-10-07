@@ -4,23 +4,54 @@
   /*display: flex;*/
   /*text-align: left;*/
 }
+.navigation::after {
+  content: '';
+  display: table;
+  clear: both;
+}
 
 .logout-button {
-  /*float: right;*/
+  display: inline-block;
+  margin: 20px;
+  /*position: absolute;*/
+  float: right;
+}
+
+.username-title {
+  display: inline-block;
+  margin: 20px;
+  /*position: absolute;*/
+  float: left;
 }
 
 .main {
   width: 100%;
 }
 
+.content {
+  position: relative;
+}
+.content::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
 .sidebar {
+  z-index: 10;
+  position: absolute;
   width: 200px;
   background-color: #333;
   float: left;
   color: #FFFFFF;
+  display: block;
 }
 .chart {
-  width: 600px;
+  left: 0;
+  padding-left: 200px;
+  position: absolute;
+  width: 80%;
+  display: block;
   background-color: #f2f2f2;
   /*position: absolute;*/
   float: right;
