@@ -2,8 +2,30 @@
   <h3>Chart</h3>
   <button type='button' ng-click='refreshChart()'>Refresh</button>
   <div class='stock-chart-display'>
-    <div class='stock-reading'>
-      
+    <div class='stock-reading' ng-repeat='stock in chartData'>
+      <!-- <table>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table> -->
+        
+      {{ stock.Name }}<br>
+      {{ stock.Symbol }}<br>
+      {{ stock.PercentChange }}<br>
+      {{ stock.YearHigh }}<br>
+      {{ stock.YearLow }}<br>
+      <h6>-------------</h6>
     </div>
   </div>
 </div>
