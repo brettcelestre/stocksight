@@ -1,0 +1,53 @@
+
+.navigation {
+  background-color: #999999;
+  /*display: flex;*/
+  /*text-align: left;*/
+}
+
+.logout-button {
+  /*float: right;*/
+}
+
+.main {
+  width: 100%;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  float: left;
+  color: #FFFFFF;
+}
+.chart {
+  width: 600px;
+  background-color: #f2f2f2;
+  /*position: absolute;*/
+  float: right;
+}
+
+/*Sidebar*/
+.stock-panel {
+  
+}
+
+.stock-item {
+  width: 200px;
+  display: inline-block;
+  height: 35px;
+}
+.stock-item:hover {
+  width: 200px;
+  background-color: #444;
+  display: inline-block;
+  height: 35px;
+}
+
+.stock-name {
+  margin: 8px 0px 5px 15px;
+}
+
+.remove-stock-btn {
+  float: right;
+  margin: -23px 10px;
+}
