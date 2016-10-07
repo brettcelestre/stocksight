@@ -9,6 +9,7 @@ angular.module('StockSight.main.chart', [])
     
     Chart.updateData()
       .then(function(data){
+        console.log('chart data: ', data.data);
         // If successful login
         if (data.status === 200) {
           

@@ -11,13 +11,5 @@ module.exports = function(app) {
       res.send('stock / GET');
     })
     .post(stockController.addSymbol);
-    
-    // .post(function(req, res) {
-    //   console.log('stock / POST req.body.symbol ', req.body.symbol);
-    //   var symbol = req.body.symbol;
-    //   // Check if symbol is valid
-    //   stockController.checkSymbolValid(symbol)      
-    //   // res.send('stock / POST');
-    // });
 
 };
