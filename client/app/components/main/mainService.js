@@ -6,18 +6,18 @@ angular.module('StockSight.main.service', [])
   // Stores current users data
   var userObject = {
     username: '',
-    symbol: []
+    stocks: []
   };
   
   // Sends accountInfo to /auth/signup/ route
-  var checkSession = function(data) {
+  var checkSession = function() {
     return $http({
       method: 'GET',
       url: '/auth/checksession',
     }).then(function(data) {
       // Updates Main service userObject
       userObject.username = data.data.user;
-      userObject.symbol = data.data.symbol;
+      userObject.stocks = data.data.stocks;
       return data;
     }, function(error) {
       return error;
@@ -31,7 +31,7 @@ angular.module('StockSight.main.service', [])
     }).then(function(data){
       // Clears Main service userObject
       userObject.username = '';
-      userObject.symbol = [];
+      userObject.stocks = [];
       return data;
     }, function(error) {
       return error; 
