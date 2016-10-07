@@ -6,7 +6,9 @@ angular.module('StockSight.login', [])
   $scope.username = '';
   $scope.password = '';
   
-  $scope.loginError = '';
+  $scope.loginError = 'Your username or password was incorrect.';
+  
+  $loginError = document.getElementById('login-error');
   
   // Submits user / pass to Login API
   $scope.userLogin = function() {
@@ -26,19 +28,21 @@ angular.module('StockSight.login', [])
           // Switches state to main
           $state.go('main');
         } else {
-          // Display error
-            // TODO
+          // Displays login error
+          $loginError.setAttribute("style", "display: show;");
         }
       })
       .catch(function(data){
         console.error('Error with login: ', data);
       });
-    
-    
   };
   
   $scope.signupView = function(){
     $state.go('home.signup');
+  };
+  
+  $scope.clearError = function() {
+    $loginError.setAttribute("style", "display: none;");
   };
 
 });
