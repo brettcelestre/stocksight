@@ -9,5 +9,7 @@ angular.module('StockSight', [
   'StockSight.main.service',
   'StockSight.main',
   'StockSight.main.chart',
-  'StockSight.main.sidebar'
+  'StockSight.main.chart.service',
+  'StockSight.main.sidebar',
+  'StockSight.main.stock'
 ]);
