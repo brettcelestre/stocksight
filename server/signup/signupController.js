@@ -21,7 +21,7 @@ module.exports = {
           // Adds this user to current session
           req.session.user = user;
           // Sets status at 201 and sends user back
-          res.status(201).send(user);
+          res.status(201).send({username: user.username, symbol: user.symbol});
         });
       }
     });

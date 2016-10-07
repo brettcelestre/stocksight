@@ -1,4 +1,4 @@
-<div ng-controller='SidebarController' class='sidebar'>
+<div ng-controller='SidebarController'>
 
   <h3>Control Panel</h3>
 
@@ -11,8 +11,11 @@
     </form>
   </div>
   
-  <div ng-repeat='symbol in stocks'>
-    <p>{{ symbol }}</p>
+  <div class='stock-panel'>
+    <div ng-repeat='symbol in stocks' class='stock-item'>
+      <p class='stock-name'>{{ symbol }}</p>
+      <button type='button' class='remove-stock-btn' ng-click='removeStock(symbol)'>-</button>
+    </div>
   </div>
 
 </div>

@@ -1,5 +1,12 @@
-<div ng-controller='MainController'>
-  <h1>main controller</h1>
-  <h4>Hello {{ username }}</h4>
-  <button type='button' ng-click='logout()'>Logout</button>
+<div ng-controller='MainController' class='main'>
+  <div class='navigation'>
+    <h4 class='username-title'>{{ username }}</h4>
+    <button type='button' class='logout-button' ng-click='logout()'>Logout</button>
+  </div>
+
+  <div class='content'>
+    <div ui-view='sidebar' class='sidebar'></div>
+    <div ui-view='chart' class='chart'></div>
+  </div>  
+  
 </div>

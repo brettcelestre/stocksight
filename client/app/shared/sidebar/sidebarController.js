@@ -23,7 +23,7 @@ angular.module('StockSight.main.sidebar', [])
     // Stores symbol not found warning element
         $symbol404 = document.getElementById('symbol-not-found');
     
-    // Hides warnings
+    // Hides error warnings
     $duplicate.setAttribute("style", "display: none;");
     $symbol404.setAttribute("style", "display: none;");
     
@@ -31,10 +31,9 @@ angular.module('StockSight.main.sidebar', [])
     Main.userObject.stocks.forEach(function(val){
       if ( currentSymbol.toUpperCase() === val ){
         flag = true;
+        // Displays Duplicate Error
         $scope.duplicateError = 'You already have ' + val + ' in your collection.';
         $duplicate.setAttribute("style", "display: show;");
-        // Display Error
-          // TODO
       }
     });
     
@@ -43,7 +42,6 @@ angular.module('StockSight.main.sidebar', [])
         .then(function(data) {
           // Success message
           if ( data.statusText == 'Created' ) {
-            // console.log(data.data.symbol + ' was added successfully.');
             // Add stock to Main user object stock array
             Main.userObject.stocks.push(data.data.symbol);
             // Clears input
@@ -59,11 +57,9 @@ angular.module('StockSight.main.sidebar', [])
           console.error('Error with login: ', data);
         });  
     }
-    
-    // }
-    
   };
   
+  // Clears error warnings on input change
   $scope.clearWarnings = function() {
     $scope.duplicateError = '',
     $scope.symbol404 = '';
