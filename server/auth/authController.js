@@ -12,12 +12,11 @@ module.exports = {
               console.error(err);
             } else {
               req.session.user = user;
-              console.log('user.symbol: ', user.symbol);
               var currentUser = {
                 user: user['username'],
                 stocks: user['symbol']
               }
-              console.log('currentUser: ', currentUser);
+              // console.log('currentUser: ', currentUser);
               res.send(currentUser);
             }
           });
@@ -44,7 +43,7 @@ module.exports = {
                 // Sets session to this user
                 req.session.user = user;
                 // Sends back only username and symbol
-                res.send({username: user.username, symbol: user.symbol});
+                res.send({username: user.username, stocks: user.symbol});
               });
               }
             });
