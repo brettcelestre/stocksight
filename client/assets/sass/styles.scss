@@ -1,40 +1,53 @@
+
+
+
+
 body {
   margin: 0;
-  color: blue; }
+  color: blue;
+}
+
+
+
 
 .navigation {
   background-color: #999999;
   /*display: flex;*/
-  /*text-align: left;*/ }
-
+  /*text-align: left;*/
+}
 .navigation::after {
   content: '';
   display: table;
-  clear: both; }
+  clear: both;
+}
 
 .logout-button {
   display: inline-block;
   margin: 20px;
   /*position: absolute;*/
-  float: right; }
+  float: right;
+}
 
 .username-title {
   display: inline-block;
   margin: 20px;
   /*position: absolute;*/
-  float: left; }
+  float: left;
+}
 
 .main {
   margin: 0;
-  width: 100%; }
+  width: 100%;
+}
 
 .content {
-  position: relative; }
-
+  position: relative;
+}
 .content::after {
   content: '';
   display: table;
-  clear: both; }
+  clear: both;
+}
 
 .sidebar {
   z-index: 10;
@@ -43,8 +56,8 @@ body {
   background-color: #333;
   float: left;
   color: #FFFFFF;
-  display: block; }
-
+  display: block;
+}
 .chart {
   left: 0;
   padding-left: 150px;
@@ -53,25 +66,37 @@ body {
   display: block;
   background-color: #f2f2f2;
   /*position: absolute;*/
-  float: right; }
+  float: right;
+}
 
 /*Sidebar*/
+.stock-panel {
+  
+}
+
 .stock-item {
   width: 150px;
   display: inline-block;
-  height: 35px; }
-
+  height: 35px;
+}
 .stock-item:hover {
   width: 150px;
   background-color: #444;
   display: inline-block;
-  height: 35px; }
+  height: 35px;
+}
 
 .stock-name {
-  margin: 8px 0px 5px 15px; }
+  margin: 8px 0px 5px 15px;
+}
 
 .remove-stock-btn {
   float: right;
-  margin: -23px 10px; }
+  margin: -23px 10px;
+}
 
 /* Chart */
+.stock-reading {
+
+}
+
