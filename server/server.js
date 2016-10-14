@@ -12,7 +12,7 @@ var express = require('express'),
     // Connects mongodb to sessions
     MongoStore = require('connect-mongo')(session),
     // Imports config file for connecting mongodb
-    config = require('./config/config.js'),
+    // config = require('./config/config.js'),
     // connection to mongodb
     options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } } },
@@ -24,7 +24,7 @@ mongoose.Promise = Q.Promise;
 
 // Connects to remote MongoDB
 var mongodbUri = process.env.mongoDB;
-mongoose.connect(mongodbUri, options);g
+mongoose.connect(mongodbUri, options);
 
 var conn = mongoose.connection;
 conn.on('error', console.error.bind(console, 'connection error:'));
