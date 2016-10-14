@@ -1,4 +1,4 @@
-
+var server;
     // Requires express
 var express = require('express'),
     // Requires mongoose
@@ -43,7 +43,7 @@ middleware(app, express);
 var PORT = process.env.PORT || 9000;
 
 // Save the HTTP server created with express as a variable in order to reuse for socket.io
-var server = app.listen(PORT);
+server = app.listen(PORT);
 console.log('Listening on', PORT); 
 
 // export app
