@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
+    "postinstall": "gulp",
     "start": "node server/server.js"
   },
   "repository": {
