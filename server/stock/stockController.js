@@ -18,20 +18,10 @@ module.exports = {
         return false;
       }
       // Parses body into JSON
-      var data = JSON.parse(body),
-          flag = false;
-      
-      // Check if the user already has this symbol in their collection
-      req.session.user.symbol.forEach(function(val){
-        if ( val === reqSymbol ) {
-          flag = true;
-          console.log('YOU ALREADY HAVE THAT: ' + reqSymbol + ' = ' + val);
-          res.status(406).send({'error': 'You already have that symbol saved to your account.'});
-        }
-      });
-      
+      var data = JSON.parse(body);
+
       // If valid, add symbol to user's symbol in DB
-      if ( data.query.results.quote.Name !== null && flag === false ) {
+      if ( data.query.results.quote.Name !== null ) {
         // Creates data object for Stock schema
         var symbolData = {'symbol': reqSymbol};
         // Adds user id to Stock schema
@@ -54,7 +44,7 @@ module.exports = {
             res.status(201).send(userData);
           }
         });
-      } else if ( flag === false ) {
+      } else {
         // If symbol doesn't exists
         res.status(404).send({'error': 'Symbol not found'});
       }

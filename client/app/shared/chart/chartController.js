@@ -23,6 +23,6 @@ angular.module('StockSight.main.chart', [])
       .catch(function(data){
         console.error('Error with login: ', data);
       });
-  };
+  }();
 
 });

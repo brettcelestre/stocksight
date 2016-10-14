@@ -33,9 +33,6 @@ module.exports = {
     
     // Pass apiFunctions array through async/parallel
     parallel( apiFunctions, function(err, results) {
-        // the results array will equal ['one','two'] even though
-        // the second function had a shorter timeout.
-        console.log('async parallel results: ', results);
         // Sends all results back
         res.status(200).send(results);
       });

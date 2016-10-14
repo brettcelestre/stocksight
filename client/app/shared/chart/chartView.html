@@ -2,29 +2,41 @@
   <h3>Chart</h3>
   <button type='button' ng-click='refreshChart()'>Refresh</button>
   <div class='stock-chart-display'>
-    <div class='stock-reading' ng-repeat='stock in chartData'>
-      <!-- <table>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table> -->
+    <div class='stock-reading'>
+      <table>
+        <thead>
+          <tr>
+            <td>Mutual Fund</td>
+            <td>Symbol</td>
+            <td>% Change</td>
+            <!-- <td>10YR</td>
+            <td>5YR</td>
+            <td>3YR</td>
+            <td>1YR</td> -->
+            <td>52 W High</td>
+            <td>52 W Low</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  ng-repeat='stock in chartData'>
+            <td>{{ stock.Name }}</td>
+            <td>{{ stock.Symbol }}</td>
+            <td>{{ stock.PercentChange }}</td>
+            <!-- <td></td>
+            <td></td>
+            <td></td>
+            <td></td> -->
+            <td>{{ stock.YearHigh }}</td>
+            <td>{{ stock.YearLow }}</td>
+          </tr>
+        </tbody>
+      </table>
         
-      {{ stock.Name }}<br>
-      {{ stock.Symbol }}<br>
-      {{ stock.PercentChange }}<br>
-      {{ stock.YearHigh }}<br>
-      {{ stock.YearLow }}<br>
+      <!-- {{ stock.Name }}<br> -->
+      <!-- {{ stock.Symbol }}<br> -->
+      <!-- {{ stock.PercentChange }}<br> -->
+      <!-- {{ stock.YearHigh }}<br>
+      {{ stock.YearLow }}<br> -->
       <h6>-------------</h6>
     </div>
   </div>
