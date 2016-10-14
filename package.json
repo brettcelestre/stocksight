@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "postinstall": "bower install && gulp",
+    // "postinstall": "gulp",
     "start": "node server/server.js"
+  },
+  "engines": {
+    "node": "4.4.5"
   },
   "repository": {
     "type": "git",
