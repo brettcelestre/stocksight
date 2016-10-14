@@ -32,6 +32,9 @@ node_modules
 ### Config ###
 **/config/
 
+### Dev Server ###
+server/serverDev.js
+
 ### Bower ###
 **/bower_components/
 

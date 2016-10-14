@@ -23,8 +23,9 @@ var express = require('express'),
 mongoose.Promise = Q.Promise;
 
 // PROD: Connects to remote MongoDB
-// var mongodbUri = process.env.mongoDB || config.mlab.uri;
-// mongoose.connect(mongodbUri, options);
+var mongodbUri = process.env.mongoDB;
+
+mongoose.connect(mongodbUri, options);
 
 // DEV: Connects to local database
 mongoose.connect('mongodb://localhost/stocksight');
