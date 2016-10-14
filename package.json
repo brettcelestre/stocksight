@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/brettcelestre/stocksight#readme",
   "dependencies": {
-    "angular-ui-router.statehelper": "^1.3.1",
     "async": "^2.0.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
