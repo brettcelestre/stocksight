@@ -22,13 +22,9 @@ var express = require('express'),
 // Make mongoose use q promises
 mongoose.Promise = Q.Promise;
 
-// PROD: Connects to remote MongoDB
+// Connects to remote MongoDB
 var mongodbUri = process.env.mongoDB;
-
-mongoose.connect(mongodbUri, options);
-
-// DEV: Connects to local database
-mongoose.connect('mongodb://localhost/stocksight');
+mongoose.connect(mongodbUri, options);g
 
 var conn = mongoose.connection;
 conn.on('error', console.error.bind(console, 'connection error:'));
