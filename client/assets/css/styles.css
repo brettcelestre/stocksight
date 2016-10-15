@@ -1,8 +1,244 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
 body {
   margin: 0;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  height: 100%;
+  padding: 0;
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.em {
+  font-style: italic; }
+
+strong {
+  font-weight: 700; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2a2b2b;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5em; }
+
+h1 {
+  font-size: 32px; }
+
+h2 {
+  font-size: 26px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 22px; }
+
+h5 {
+  font-size: 20px; }
+
+h6 {
+  font-size: 16px; }
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  color: #e6e6e6;
+  font-weight: 400; }
+
+h1 small {
+  font-size: 28px; }
+
+h2 small {
+  font-size: 22.75px; }
+
+h3 small {
+  font-size: 21px; }
+
+h4 small {
+  font-size: 19.25px; }
+
+h5 small {
+  font-size: 17.5px; }
+
+h6 small {
+  font-size: 14px; }
+
+@media (min-width: 48em) {
+  h1 {
+    font-size: 48px; }
+  h2 {
+    font-size: 40px; }
+  h3 {
+    font-size: 31px; }
+  h4 {
+    font-size: 25px; }
+  h5 {
+    font-size: 20px; }
+  h6 {
+    font-size: 16px; }
+  h1 small {
+    font-size: 42px; }
+  h2 small {
+    font-size: 35px; }
+  h3 small {
+    font-size: 27.125px; }
+  h4 small {
+    font-size: 21.875px; }
+  h5 small {
+    font-size: 17.5px; }
+  h6 small {
+    font-size: 14px; } }
+
+p {
+  color: inherit;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30em; }
+
+.code {
+  font-family: "Consolas", "Courier New", mono; }
+
+ul, .ul {
+  list-style-type: disc; }
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* FONTS */
+/* Mixins */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  min-height: 100%; }
+
+input {
+  outline: none; }
+
+.home {
+  height: 100%;
+  /* Home View */ }
+  .home .content {
+    height: 100%; }
+  .home .home-view {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 400px;
+    text-align: center; }
+
+/*login fonts
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-weight: 300;
-  font-size: .9rem; }
+  font-size: .9rem;*/
+/* Home > Login View */
+.login-view {
+  margin-top: -15px; }
+  .login-view form {
+    margin-bottom: 7px; }
+    .login-view form input {
+      width: 225px;
+      height: 35px;
+      margin-bottom: 6px;
+      font-family: Open Sans;
+      font-weight: 300;
+      font-size: 0.9rem;
+      padding-left: 6px;
+      letter-spacing: .5px;
+      color: #333333; }
+  .login-view .login-button {
+    font-family: Open Sans;
+    font-weight: 300;
+    font-size: .9rem;
+    padding-left: 6px;
+    letter-spacing: .5px;
+    color: #333333;
+    background-color: #e6e6e6;
+    width: 125px;
+    height: 35px;
+    padding: 0;
+    border: none; }
+    .login-view .login-button:hover {
+      color: #e6e6e6;
+      background-color: #333333; }
+
+.container:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.container {
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: 0 20px;
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto;
+  *zoom: 1; }
+
+.container:before, .container:after {
+  content: " ";
+  display: table; }
+
+.container:after {
+  clear: both; }
+
+.main {
+  /*text-align: center;*/
+  /*margin: 0 auto;
+  width: 100%;*/
+  /*background-color: blue;*/ }
+
+.login-view {
+  display: inline-block; }
 
 .navigation {
   background-color: #999999;
@@ -25,10 +261,6 @@ body {
   margin: 20px;
   /*position: absolute;*/
   float: left; }
-
-.main {
-  margin: 0;
-  width: 100%; }
 
 .content {
   position: relative; }
