@@ -32,6 +32,9 @@ node_modules
 ### Config ###
 **/config/
 
+### Images ###
+client/assets/imgs/
+
 ### Dev Server ###
 server/serverDev.js
 
