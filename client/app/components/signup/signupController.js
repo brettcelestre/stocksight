@@ -7,9 +7,17 @@ angular.module('StockSight.signup', [])
   $scope.passwordOne = '';
   $scope.passwordTwo = '';
   
+  $entryError = document.getElementById('entry-error');
+  $passwordError = document.getElementById('password-error');
+  $usernameError = document.getElementById('username-error');
+  
   // Submits user / pass to Login API
   $scope.createAccount = function() {
-    if ( $scope.passwordOne === $scope.passwordTwo ) {
+    // Verifies username was entered
+    if ( $scope.username.length < 1 ) {
+      $entryError.setAttribute("style", "display: show;");
+    // Verifies passwords match
+    } else if ( $scope.passwordOne === $scope.passwordTwo ) {
       // Creates account info object
       var accountInfo = {
         username: $scope.username,
@@ -22,11 +30,10 @@ angular.module('StockSight.signup', [])
           if ( data.statusText == 'Created' ) {
             // Change State to Questions / or quick tour slides
             $state.go('main');
-          // Failure message
-            // TODO
           } else {
             // Display 'Username already taken'
             alert('sorry something went wrong');
+            $signUpError.setAttribute("style", "display: show;");
           }
         })
         .catch(function(data) {
@@ -36,11 +43,20 @@ angular.module('StockSight.signup', [])
       $scope.username = '';
       $scope.passwordOne = '';
       $scope.passwordTwo = '';
+    } else {
+    // Passwords do not match error
+      $passwordError.setAttribute("style", "display: show;");
     }
   };
   
   $scope.loginView = function(){
     $state.go('home.login');
+  };
+
+  $scope.clearError = function() {
+    $entryError.setAttribute("style", "display: none;");
+    $usernameError.setAttribute("style", "display: none;");
+    $passwordError.setAttribute("style", "display: none;");
   };
 
 });

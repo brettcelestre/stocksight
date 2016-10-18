@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -131,9 +132,12 @@ h6 small {
 
 p {
   color: inherit;
-  font-weight: 400;
+  font-family: Open Sans;
+  font-size: .9rem;
+  font-weight: 300;
   line-height: 1.6;
-  margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
+  margin: .2rem 0 .2rem 0;
   margin-left: auto;
   margin-right: auto;
   max-width: 30em; }
@@ -149,6 +153,8 @@ ul, .ul {
   box-sizing: border-box; }
 
 /* FONTS */
+/*Stock Sight Title*/
+/*Form and Main Fonts*/
 /* Mixins */
 html, body {
   height: 100%;
@@ -162,8 +168,7 @@ input {
   outline: none; }
 
 .home {
-  height: 100%;
-  /* Home View */ }
+  height: 100%; }
   .home .content {
     height: 100%; }
   .home .home-view {
@@ -174,14 +179,25 @@ input {
     top: 50%;
     width: 400px;
     text-align: center; }
+    .home .home-view .title {
+      font-family: 'Julius Sans One', sans-serif; }
 
-/*login fonts
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  font-weight: 300;
-  font-size: .9rem;*/
-/* Home > Login View */
 .login-view {
   margin-top: -15px; }
+  .login-view .create-account {
+    margin-top: -10px; }
+  .login-view #login-error {
+    margin-bottom: 15px;
+    font-size: .8rem; }
+  .login-view #entry-error {
+    margin-bottom: 15px;
+    font-size: .8rem; }
+  .login-view #password-error {
+    margin-bottom: 15px;
+    font-size: .8rem; }
+  .login-view #username-error {
+    margin-bottom: 15px;
+    font-size: .8rem; }
   .login-view form {
     margin-bottom: 7px; }
     .login-view form input {
@@ -190,25 +206,35 @@ input {
       margin-bottom: 6px;
       font-family: Open Sans;
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       padding-left: 6px;
       letter-spacing: .5px;
       color: #333333; }
-  .login-view .login-button {
-    font-family: Open Sans;
-    font-weight: 300;
-    font-size: .9rem;
-    padding-left: 6px;
-    letter-spacing: .5px;
-    color: #333333;
-    background-color: #e6e6e6;
-    width: 125px;
-    height: 35px;
-    padding: 0;
-    border: none; }
-    .login-view .login-button:hover {
-      color: #e6e6e6;
-      background-color: #333333; }
+
+button:active {
+  outline: none;
+  border: none; }
+
+button:focus {
+  outline: none;
+  border: none; }
+
+.login-buttons .login-button {
+  font-family: Open Sans;
+  font-weight: 300;
+  font-size: .85rem;
+  margin-bottom: 5px;
+  letter-spacing: .5px;
+  color: #e6e6e6;
+  background-color: #333333;
+  width: 225px;
+  height: 35px;
+  padding: 0;
+  border: none;
+  border-radius: 1px; }
+  .login-buttons .login-button:hover {
+    color: #e6e6e6;
+    background-color: #666666; }
 
 .container:after {
   content: '';

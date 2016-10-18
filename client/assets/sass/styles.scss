@@ -110,9 +110,12 @@ h6 small { font-size: 14px; }
 
 p {
   color: inherit;
-  font-weight: 400;
+  font-family: Open Sans;
+  font-size: .9rem;
+  font-weight: 300;
   line-height: 1.6;
-  margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
+  margin: .2rem 0 .2rem 0;
   margin-left: auto;
   margin-right: auto;
   max-width: 30em;
@@ -132,6 +135,9 @@ ul, .ul {
 }
 
 /* FONTS */
+/*Stock Sight Title*/
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
+/*Form and Main Fonts*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 
 /* Mixins */
@@ -147,19 +153,20 @@ ul, .ul {
 @mixin login-buttons(){
   font-family: Open Sans;
   font-weight: 300;
-  font-size: .9rem;
-  padding-left: 6px;
+  font-size: .85rem;
+  margin-bottom: 5px;
   letter-spacing: .5px;
-  color: #333333;
-  background-color: #e6e6e6;
-  width: 125px;
+  color: #e6e6e6;
+  background-color: #333333;
+  width: 225px;
   height: 35px;
   padding: 0;
   border: none;
+  border-radius: 1px;
   
   &:hover{
     color: #e6e6e6;
-    background-color: #333333;
+    background-color: #666666;
   }
 }
 
@@ -185,7 +192,6 @@ input {
     height: 100%;
   }
   
-  /* Home View */
   .home-view {
     display: block;
     position: relative;
@@ -194,19 +200,41 @@ input {
     top: 50%;
     width: 400px;
     text-align: center;
+    
+    .title {
+      font-family: 'Julius Sans One', sans-serif;
+    }
   }
   
   
 }
 
-/*login fonts
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  font-weight: 300;
-  font-size: .9rem;*/
-  
-/* Home > Login View */
 .login-view {
   margin-top: -15px;
+  
+  .create-account {
+    margin-top: -10px;
+  }
+  
+  #login-error {
+    margin-bottom: 15px;
+    font-size: .8rem;
+  }
+  
+  #entry-error {
+    margin-bottom: 15px;
+    font-size: .8rem;
+  }
+  
+  #password-error {
+    margin-bottom: 15px;
+    font-size: .8rem;
+  }
+  
+  #username-error {
+    margin-bottom: 15px;
+    font-size: .8rem;
+  }
   
   form {
     margin-bottom: 7px;
@@ -215,10 +243,21 @@ input {
       height: 35px;
       margin-bottom: 6px;
       
-      @include input-form(300, .9rem);
+      @include input-form(300, .85rem);
     }
-  }
-  
+  }  
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+button:focus {
+  outline: none;
+  border: none;
+}
+
+.login-buttons {
   .login-button {
     @include login-buttons();
   }

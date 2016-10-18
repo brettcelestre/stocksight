@@ -4,8 +4,9 @@
     <input type='password' ng-model='password' placeholder='Password' ng-change='clearError()'>
     <input type="submit" style='display: none;'>
   </form>
-  <button type='button' ng-click='userLogin()' class='login-button'>Login</button>
   <p id='login-error' style="display:none;">{{ loginError }}</p>
-  <p>- Or -</p>
-  <button type='button' ng-click='signupView()' class='login-button'>Sign Up</button>
+  <div class='login-buttons'>
+    <button type='button' ng-click='userLogin()' class='login-button'>Login</button>
+    <button type='button' ng-click='signupView()' class='login-button'>Sign Up</button>
+  </div>
 </div>
