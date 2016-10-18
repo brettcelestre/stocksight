@@ -86,17 +86,49 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   color: #e6e6e6;
   font-weight: 400; }
 
+/*
+h1 small { font-size: 28px; }
+
+h2 small { font-size: 22.75px; }
+
+h3 small { font-size: 21px; }
+
+h4 small { font-size: 19.25px; }
+
+h5 small { font-size: 17.5px; }
+
+h6 small { font-size: 14px; }
+
+@media (min-width: 48em) {*/
+h1 {
+  font-size: 48px; }
+
+h2 {
+  font-size: 40px; }
+
+h3 {
+  font-size: 31px; }
+
+h4 {
+  font-size: 25px; }
+
+h5 {
+  font-size: 20px; }
+
+h6 {
+  font-size: 16px; }
+
 h1 small {
-  font-size: 28px; }
+  font-size: 42px; }
 
 h2 small {
-  font-size: 22.75px; }
+  font-size: 35px; }
 
 h3 small {
-  font-size: 21px; }
+  font-size: 27.125px; }
 
 h4 small {
-  font-size: 19.25px; }
+  font-size: 21.875px; }
 
 h5 small {
   font-size: 17.5px; }
@@ -104,32 +136,7 @@ h5 small {
 h6 small {
   font-size: 14px; }
 
-@media (min-width: 48em) {
-  h1 {
-    font-size: 48px; }
-  h2 {
-    font-size: 40px; }
-  h3 {
-    font-size: 31px; }
-  h4 {
-    font-size: 25px; }
-  h5 {
-    font-size: 20px; }
-  h6 {
-    font-size: 16px; }
-  h1 small {
-    font-size: 42px; }
-  h2 small {
-    font-size: 35px; }
-  h3 small {
-    font-size: 27.125px; }
-  h4 small {
-    font-size: 21.875px; }
-  h5 small {
-    font-size: 17.5px; }
-  h6 small {
-    font-size: 14px; } }
-
+/*}*/
 p {
   color: inherit;
   font-family: Open Sans;
@@ -162,7 +169,8 @@ html, body {
   padding: 0; }
 
 body {
-  min-height: 100%; }
+  min-height: 100%;
+  /*background-color: #999999;*/ }
 
 input {
   outline: none; }
@@ -177,7 +185,8 @@ input {
     margin: 0 auto;
     transform: translateY(-50%);
     top: 50%;
-    width: 400px;
+    min-width: 310px;
+    max-width: 400px;
     text-align: center; }
     .home .home-view .title {
       font-family: 'Julius Sans One', sans-serif; }
@@ -185,7 +194,7 @@ input {
 .login-view {
   margin-top: -15px; }
   .login-view .create-account {
-    margin-top: -10px; }
+    margin-top: -25px; }
   .login-view #login-error {
     margin-bottom: 15px;
     font-size: .8rem; }
@@ -236,10 +245,16 @@ button:focus {
     color: #e6e6e6;
     background-color: #666666; }
 
+/*.login-view {
+  display: inline-block;
+}
+*/
+/*
 .container:after {
   content: '';
   display: block;
-  clear: both; }
+  clear: both;
+}
 
 .container {
   margin: 0 auto;
@@ -248,45 +263,57 @@ button:focus {
   max-width: 64em;
   margin-left: auto;
   margin-right: auto;
-  *zoom: 1; }
-
+  *zoom: 1;
+}
 .container:before, .container:after {
   content: " ";
-  display: table; }
-
+  display: table;
+}
 .container:after {
-  clear: both; }
-
-.main {
-  /*text-align: center;*/
-  /*margin: 0 auto;
-  width: 100%;*/
-  /*background-color: blue;*/ }
-
-.login-view {
-  display: inline-block; }
-
+  clear: both;
+}
+*/
+/*Navigation: Bar and Stock Sight title*/
 .navigation {
-  background-color: #999999;
-  /*display: flex;*/
-  /*text-align: left;*/ }
+  background-color: #FFFFFF;
+  height: 60px;
+  width: 100%; }
+  .navigation .title-navigation {
+    font-family: 'Julius Sans One', sans-serif;
+    padding: 10px 0 0 18px; }
+  .navigation .menu-title {
+    float: left; }
 
 .navigation::after {
   content: '';
   display: table;
   clear: both; }
 
-.logout-button {
-  display: inline-block;
-  margin: 20px;
-  /*position: absolute;*/
-  float: right; }
-
-.username-title {
-  display: inline-block;
-  margin: 20px;
-  /*position: absolute;*/
-  float: left; }
+/*Navigation: Username and logout*/
+.user-menu {
+  display: flex;
+  float: right;
+  height: 60px; }
+  .user-menu .username-title {
+    margin: 16px 10px 0 0;
+    font-family: Open Sans;
+    font-weight: 300; }
+  .user-menu .logout-button {
+    float: right;
+    font-family: Open Sans;
+    font-weight: 300;
+    font-size: .8rem;
+    letter-spacing: .5px;
+    color: #333333;
+    background-color: #FFFFFF;
+    width: 80px;
+    height: 60px;
+    padding: 0;
+    border: none;
+    border-radius: 1px; }
+    .user-menu .logout-button:hover {
+      color: #e6e6e6;
+      background-color: #333333; }
 
 .content {
   position: relative; }

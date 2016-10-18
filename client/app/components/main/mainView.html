@@ -1,7 +1,16 @@
 <div ng-controller='MainController' class='main'>
+
   <div class='navigation'>
-    <h4 class='username-title'>{{ username }}</h4>
-    <button type='button' class='logout-button' ng-click='logout()'>Logout</button>
+    
+    <div class='menu-title'>
+      <h3 class='title-navigation'>Stock Sight</h3>
+    </div>
+    
+    <div class='user-menu'>
+      <h5 class='username-title'>{{ username }}</h5>
+      <button type='button' class='logout-button' ng-click='logout()'>Logout</button>
+    </div>
+
   </div>
 
   <div class='content'>
