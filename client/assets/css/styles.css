@@ -175,6 +175,9 @@ body {
 input {
   outline: none; }
 
+.pointer:hover {
+  cursor: pointer; }
+
 .home {
   height: 100%; }
   .home .content {
@@ -210,9 +213,11 @@ input {
   .login-view form {
     margin-bottom: 7px; }
     .login-view form input {
+      /*width: 225px;
+      height: 35px;*/
+      margin-bottom: 6px;
       width: 225px;
       height: 35px;
-      margin-bottom: 6px;
       font-family: Open Sans;
       font-weight: 300;
       font-size: 0.85rem;
@@ -243,36 +248,9 @@ button:focus {
   border-radius: 1px; }
   .login-buttons .login-button:hover {
     color: #e6e6e6;
-    background-color: #666666; }
+    background-color: #666666;
+    cursor: pointer; }
 
-/*.login-view {
-  display: inline-block;
-}
-*/
-/*
-.container:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 1040px;
-  padding: 0 20px;
-  max-width: 64em;
-  margin-left: auto;
-  margin-right: auto;
-  *zoom: 1;
-}
-.container:before, .container:after {
-  content: " ";
-  display: table;
-}
-.container:after {
-  clear: both;
-}
-*/
 /*Navigation: Bar and Stock Sight title*/
 .navigation {
   background-color: #FFFFFF;
@@ -313,52 +291,146 @@ button:focus {
     border-radius: 1px; }
     .user-menu .logout-button:hover {
       color: #e6e6e6;
-      background-color: #333333; }
+      background-color: #333333;
+      cursor: pointer; }
 
 .content {
-  position: relative; }
+  position: relative;
+  heigth: 100%; }
 
 .content::after {
   content: '';
   display: table;
   clear: both; }
 
+/* Sidebar */
 .sidebar {
   z-index: 10;
-  position: absolute;
+  position: fixed;
   width: 150px;
   background-color: #333;
   float: left;
   color: #FFFFFF;
-  display: block; }
-
-.chart {
-  left: 0;
-  padding-left: 150px;
-  position: absolute;
-  width: 80%;
   display: block;
-  background-color: #f2f2f2;
-  /*position: absolute;*/
-  float: right; }
+  height: 100%; }
 
-/*Sidebar*/
+.add-symbol-form input {
+  width: 100%;
+  height: 45px;
+  font-family: Open Sans;
+  font-weight: 300;
+  font-size: 0.85rem;
+  padding-left: 6px;
+  letter-spacing: .5px;
+  color: #333333;
+  /*border: none;*/
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  border-color: #d9d9d9 #f2f2f2 white white;
+  padding-left: 10px; }
+
+.add-symbol-form button {
+  width: 100%;
+  height: 35px;
+  font-family: Open Sans;
+  font-weight: 300;
+  font-size: .75rem;
+  padding-left: 6px;
+  letter-spacing: .5px;
+  color: #FFFFFF;
+  background-color: #444;
+  border: none; }
+
+.add-symbol-form button:hover {
+  color: #e6e6e6;
+  background-color: #808080; }
+
+.add-symbol-form p {
+  padding: 5px 5px 5px 7px;
+  font-size: .7rem; }
+
+.stock-panel {
+  position: relative;
+  heigth: 100%; }
+
+.stock-panel::after {
+  content: '';
+  display: table;
+  clear: both; }
+
 .stock-item {
   width: 150px;
   display: inline-block;
-  height: 35px; }
+  height: 27px; }
 
 .stock-item:hover {
   width: 150px;
   background-color: #444;
   display: inline-block;
-  height: 35px; }
+  height: 27px; }
 
-.stock-name {
-  margin: 8px 0px 5px 15px; }
+.stock-symbol p {
+  float: left;
+  margin: 2px 0px 5px 13px; }
 
-.remove-stock-btn {
+.minus-button {
+  display: flex;
   float: right;
-  margin: -23px 10px; }
+  height: 27px;
+  width: 27px;
+  margin: 0px; }
+  .minus-button .minus {
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+    display: inline-block;
+    -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-minus-empty.svg) no-repeat 50% 50%;
+    mask: url(http://brettcelestre.com/code/stocksight/ios-minus-empty.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: white; }
+
+.minus-button:hover {
+  cursor: pointer;
+  background-color: #808080; }
+  .minus-button:hover .minus {
+    cursor: pointer; }
+
+/* Chart */
+.chart {
+  padding-left: 150px;
+  position: fixed;
+  width: 100%;
+  display: block;
+  background-color: #fcfcfc;
+  float: right; }
+
+.chart-menu {
+  height: 45px;
+  background-color: #f2f2f2; }
+
+.chart-content {
+  padding: 10px 15px 10px 15px; }
+
+.refresh-button {
+  width: 45px;
+  heigth: 100%;
+  padding: 6px 0 0 5px; }
+
+.refresh-button:hover {
+  background-color: #333333;
+  cursor: pointer; }
+  .refresh-button:hover .refresh {
+    background-color: white; }
+
+.refresh {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
+  mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: #333; }
 
 /* Chart */

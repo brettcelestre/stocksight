@@ -1,21 +1,24 @@
 <div ng-controller='SidebarController'>
 
-  <h3>Control Panel</h3>
-
   <div class='add-symbol-box'>
-    <form class='add-symbol-form'>
+    <form class='add-symbol-form' ng-submit='addStock()'>
       <input type='text' placeholder='Enter Stock Symbol' ng-model='symbol' ng-change='clearWarnings()'></input>
-      <button type='button' ng-click='addStock()'>Add Stock</button><br>
       <p id='duplicate-symbol' style="display:none;">{{ duplicateError }}</p>
       <p id='symbol-not-found' style="display:none;">{{ symbol404 }}</p>
       <p id='no-symbol-string' style="display:none;">{{ noSymbol }}</p>
+      <button type='button' ng-click='addStock()' class='pointer'>Add Stock</button><br>
     </form>
   </div>
   
   <div class='stock-panel'>
     <div ng-repeat='symbol in stocks' class='stock-item'>
-      <p class='stock-name'>{{ symbol }}</p>
-      <button type='button' class='remove-stock-btn' ng-click='removeStock(symbol)'>-</button>
+      <div class='stock-symbol'>
+        <p>{{ symbol }}</p>
+      </div>
+      <div class='minus-button'>
+        <div class='minus remove-stock-btn' ng-click='removeStock(symbol)'></div>
+      </div>
+      <!-- <button type='button' class='remove-stock-btn' ng-click='removeStock(symbol)'>-</button> -->
     </div>
   </div>
 

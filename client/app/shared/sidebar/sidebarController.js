@@ -74,6 +74,8 @@ angular.module('StockSight.main.sidebar', [])
     $scope.duplicateError = '',
     $scope.symbol404 = '';
     $noSymbol.setAttribute("style", "display: none;");
+    $symbol404.setAttribute("style", "display: none;");
+    $duplicate.setAttribute("style", "display: none;");
   };
 
 });
