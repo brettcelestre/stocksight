@@ -181,6 +181,16 @@ ul, .ul {
   mask-size: cover;
 }
 
+@mixin chart-text($size, $weight, $padding, $margin, $spacing, $color){
+  font-family: Open Sans;
+  font-weight: $weight;
+  font-size: $size;
+  padding: $padding;
+  margin: $margin;
+  letter-spacing: $spacing;
+  color: $color;
+}
+
 
 html, body {
   height: 100%;
@@ -442,6 +452,7 @@ button:focus {
   padding-left: 150px;
   position: fixed;
   width: 100%;
+  height: 100%;
   display: block;
   background-color: #fcfcfc;
   float: right;
@@ -450,10 +461,6 @@ button:focus {
   height: 45px;
   background-color: #f2f2f2;
 }
-.chart-content {
-  padding: 10px 15px 10px 15px;
-}
-
 .refresh-button {
   width: 45px;
   heigth: 100%;
@@ -466,7 +473,6 @@ button:focus {
     background-color: white;
   }
 }
-
 .refresh {
   width: 36px;
   height: 36px;
@@ -477,9 +483,53 @@ button:focus {
   mask-size: cover;
   background-color: #333;
 }
-
-/* Chart */
-.stock-reading {
-
+.chart-content {
+  /*width: 100%;*/
+  max-width: 1500px;
+  padding: 10px 15px 10px 15px;
 }
+.stock-reading {
+  width: 100%;
+  min-width: 600px;
+  max-width: 700px;
+}
+.stock-read thead {
+  padding-bottom: 33px;
+}
+.chart-header {
+  @include chart-text(.95rem, 600, 0, 0, -.01rem, #333);
+  /*margin-bottom: 10px;*/
+}
+.chart-header td {
+  padding-left: 3px;
+}
+tbody:before {
+    content: "-";
+    display: block;
+    line-height: .5rem;
+    color: transparent;
+}
+.chart-body {
+  @include chart-text(.88rem, 400, 0, 0, -.01rem, #333);
+}
+.chart-body td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 3px;
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  border-color: #d9d9d9;
+}
+.chart-body:hover {
+  background-color: #f4f4f4;
+}
+.chart-body td:nth-child(2),
+.chart-body td:nth-child(3),
+.chart-body td:nth-child(4),
+.chart-body td:nth-child(5), {
+  padding-left: 9px;
+}
+
+/*@include chart-text($size, $weight, $padding, $margin, $spacing, $color)*/
+/*Open+Sans:300,400,600,700)*/
 

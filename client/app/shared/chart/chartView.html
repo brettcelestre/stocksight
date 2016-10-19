@@ -8,15 +8,14 @@
   
   <div class='chart-content'>
     
-    <div class='stock-chart-display'>
-      
+    <!-- <div class='stock-chart-display'> -->
       <div id='spinner'>
         <img src='http://brettcelestre.com/code/stocksight/spinner.svg' alt='Loading' width='50px' height='50px'>
       </div>
     
-      <div id='chart' class='stock-reading'>
-        <table>
-          <thead>
+      <div id='chart'>
+        <table class='stock-reading'>
+          <thead class='chart-header'>
             <tr>
               <td>Mutual Fund</td>
               <td>Symbol</td>
@@ -30,15 +29,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr  ng-repeat='stock in chartData'>
-              <td>{{ stock.Name }}</td>
-              <td>{{ stock.Symbol }}</td>
-              <td>{{ stock.PercentChange }}</td>
+            <tr class='chart-body' ng-repeat='stock in chartData'>
+              <td class='bar-right'>{{ stock.Name }}</td>
+              <td class='bar-right'>{{ stock.Symbol }}</td>
+              <td class='bar-right'>{{ stock.PercentChange }}</td>
               <!-- <td></td>
               <td></td>
               <td></td>
               <td></td> -->
-              <td>{{ stock.YearHigh }}</td>
+              <td class='bar-right'>{{ stock.YearHigh }}</td>
               <td>{{ stock.YearLow }}</td>
             </tr>
           </tbody>
@@ -49,8 +48,10 @@
         <!-- {{ stock.PercentChange }}<br> -->
         <!-- {{ stock.YearHigh }}<br>
         {{ stock.YearLow }}<br> -->
-        <h6>-------------</h6>
+        <!-- <h6>-------------</h6> -->
+        
       </div>
-    </div>
+    <!-- </div> -->
   </div>
+  
 </div>
