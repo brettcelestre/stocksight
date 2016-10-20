@@ -498,10 +498,13 @@ button:focus {
 }
 .chart-header {
   @include chart-text(.95rem, 600, 0, 0, -.01rem, #333);
-  /*margin-bottom: 10px;*/
 }
 .chart-header td {
   padding-left: 3px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-width: 0 0px 1px 0;
+  border-color: #a6a6a6;
 }
 tbody:before {
     content: "-";
@@ -517,7 +520,7 @@ tbody:before {
   padding-bottom: 5px;
   padding-left: 3px;
   border-style: solid;
-  border-width: 0 1px 1px 0;
+  border-width: 0 0px 1px 0;
   border-color: #d9d9d9;
 }
 .chart-body:hover {

@@ -16,13 +16,14 @@ var express = require('express'),
     options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } } },
     // express server instance
-    app = express();
+    app = express(),
+    config = require('./config/config.js');
 
 // Make mongoose use q promises
 mongoose.Promise = Q.Promise;
 
 // Connects to remote MongoDB
-var mongodbUri = process.env.mongoDB;
+var mongodbUri = process.env.mongoDB || config.mlab.uri;
 mongoose.connect(mongodbUri, options);
 
 var conn = mongoose.connection;
