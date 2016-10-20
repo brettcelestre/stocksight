@@ -5,8 +5,11 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install",
+    "postinstall": "bower install && webpack --progress --colors",
     "start": "node server/server.js"
+  },
+  "engines": {
+    "node": "6.2.0"
   },
   "repository": {
     "type": "git",
@@ -32,7 +35,8 @@
     "mongoose": "^4.6.2",
     "morgan": "^1.7.0",
     "q": "^1.4.1",
-    "request": "^2.75.0"
+    "request": "^2.75.0",
+    "webpack": "^1.13.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
