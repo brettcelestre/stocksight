@@ -11,7 +11,7 @@ angular.module('appRoutes', [])
     
     // Home state config
     .state('home', {
-      url: '/',
+      url: '/home',
       // Sets default children ui-views to home.login
       params: { 
         autoActivateChild: 'home.login'
