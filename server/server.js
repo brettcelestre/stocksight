@@ -42,7 +42,8 @@ middleware(app, express);
 var PORT = process.env.PORT || 9000;
 
 // Save the HTTP server created with express as a variable in order to reuse for socket.io
-var server = app.listen(PORT);
+// var server = app.listen(PORT);
+app.listen(PORT);
 console.log('Listening on', PORT); 
 
 // export app
