@@ -16,7 +16,10 @@
     "url": "git+https://github.com/brettcelestre/stocksight.git"
   },
   "keywords": [
-    "stock"
+    "stock",
+    "sight",
+    "market",
+    "symbol"
   ],
   "author": "Brett Celestre",
   "license": "ISC",
