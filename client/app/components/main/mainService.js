@@ -6,7 +6,8 @@ angular.module('StockSight.main.service', [])
   // Stores current users data
   var userObject = {
     username: '',
-    stocks: []
+    stocks: [],
+    view: 'chart'
   };
   
   // Sends accountInfo to /auth/signup/ route
