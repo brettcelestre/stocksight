@@ -31,8 +31,32 @@ var UserSchema = new Schema({
   // Salts string for password hashing
   salt: String,
   
-  // Stores stock symbols in array as strings
+  // Stores stock symbols in array as Object
   symbol: [String],
+  
+  // Figure out what different amounts to save and monitor / flag
+  // symbol: [{
+  //   symbol: {
+  //     type: String,
+  //     required: true,
+  //   },
+  //   weekHighFlag: {
+  //     type: number,
+  //     default: 0
+  //   },
+  //   weekLowFlag: {
+  //     type: number,
+  //     default: 0
+  //   },
+  //   ytdHighFlag: {
+  //     type: number,
+  //     default: 0
+  //   },
+  //   ytdLowFlag: {
+  //     type: number,
+  //     default: 0
+  //   },
+  // }],
   
   createdAt: {
     type: Date,
