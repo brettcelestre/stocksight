@@ -10,6 +10,9 @@ module.exports = function(app) {
       console.log('stock / GET req.body ', req.body);
       res.send('stock / GET');
     })
-    .post(stockController.addSymbol);
+    // Adds stock
+    .post(stockController.addSymbol)
+    // Deletes stock
+    .delete(stockController.deleteSymbol);
 
 };
