@@ -170,7 +170,15 @@ html, body {
 
 body {
   min-height: 100%;
-  /*background-color: #999999;*/ }
+  /*background-color: #999999;*/
+  /*Scroll bar styles*/
+  /*scrollbar-face-color: #eee;
+  scrollbar-highlight-color: #fff;
+  scrollbar-3dlight-color: #ccc;
+  scrollbar-darkshadow-color: #fff;
+  scrollbar-shadow-color: #aaa;
+  scrollbar-arrow-color: #000000;
+  scrollbar-track-color: #eee;*/ }
 
 input {
   outline: none; }
@@ -213,9 +221,8 @@ input {
   .login-view form {
     margin-bottom: 7px; }
     .login-view form input {
-      /*width: 225px;
-      height: 35px;*/
       margin-bottom: 6px;
+      border: 1px solid #cccccc;
       width: 225px;
       height: 35px;
       font-family: Open Sans;
@@ -290,8 +297,8 @@ button:focus {
     border: none;
     border-radius: 1px; }
     .user-menu .logout-button:hover {
-      color: #e6e6e6;
-      background-color: #333333;
+      /*color: #e6e6e6;*/
+      background-color: #f2f2f2;
       cursor: pointer; }
 
 .content {
@@ -303,20 +310,28 @@ button:focus {
   display: table;
   clear: both; }
 
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #fcfcfc; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #444; }
+
 /* Sidebar */
 .sidebar {
   z-index: 10;
   position: fixed;
-  width: 150px;
+  width: 120px;
   background-color: #333;
   float: left;
   color: #FFFFFF;
   display: block;
-  height: 100%; }
+  height: 100%;
+  overflow-y: scroll; }
 
 .add-symbol-form input {
   width: 100%;
-  height: 45px;
+  height: 35px;
   font-family: Open Sans;
   font-weight: 300;
   font-size: 0.85rem;
@@ -342,8 +357,7 @@ button:focus {
   border: none; }
 
 .add-symbol-form button:hover {
-  color: #e6e6e6;
-  background-color: #808080; }
+  background-color: #595959; }
 
 .add-symbol-form p {
   padding: 5px 5px 5px 7px;
@@ -359,15 +373,27 @@ button:focus {
   clear: both; }
 
 .stock-item {
-  width: 150px;
+  width: 115px;
   display: inline-block;
   height: 27px; }
+  .stock-item .delete-stock {
+    display: inline-block;
+    width: 100px;
+    margin: 2px 0 7px 7px;
+    background-color: #595959;
+    border-radius: 2px; }
+  .stock-item .delete-stock:hover {
+    cursor: pointer;
+    background-color: #737373; }
+  .stock-item .delete-stock p {
+    text-align: center;
+    font-size: 11px; }
 
 .stock-item:hover {
-  width: 150px;
-  background-color: #444;
-  display: inline-block;
-  height: 27px; }
+  background-color: #444; }
+
+.remove-item-height {
+  height: 60px; }
 
 .stock-symbol p {
   float: left;
@@ -398,7 +424,7 @@ button:focus {
 
 /* Chart */
 .chart {
-  padding-left: 150px;
+  padding-left: 120px;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -407,29 +433,50 @@ button:focus {
   float: right; }
 
 .chart-menu {
-  height: 45px;
-  background-color: #f2f2f2; }
+  height: 35px;
+  background-color: #f2f2f2;
+  display: flex; }
 
-.refresh-button {
-  width: 45px;
+.chart-button {
+  width: 35px;
   heigth: 100%;
-  padding: 6px 0 0 5px; }
+  padding: 3px 0 0 3px; }
+  .chart-button .refresh {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
+    mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #333; }
+  .chart-button .list {
+    width: 30px;
+    height: 30px;
+    margin-top: -1px;
+    display: inline-block;
+    -webkit-mask: url(http://brettcelestre.com/code/stocksight/navicon.svg) no-repeat 50% 50%;
+    mask: url(http://brettcelestre.com/code/stocksight/navicon.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #333; }
+  .chart-button .sight {
+    width: 30px;
+    height: 30px;
+    margin-top: -1px;
+    display: inline-block;
+    -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-eye.svg) no-repeat 50% 50%;
+    mask: url(http://brettcelestre.com/code/stocksight/ios-eye.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #333; }
 
-.refresh-button:hover {
-  background-color: #333333;
+.chart-button:hover {
+  background-color: #d9d9d9;
   cursor: pointer; }
-  .refresh-button:hover .refresh {
-    background-color: white; }
 
-.refresh {
-  width: 36px;
-  height: 36px;
-  display: inline-block;
-  -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
-  mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  background-color: #333; }
+.chart-button-selected {
+  background-color: #d9d9d9; }
 
 .chart-content {
   /*width: 100%;*/

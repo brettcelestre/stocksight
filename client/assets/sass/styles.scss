@@ -201,6 +201,15 @@ html, body {
 body {
   min-height: 100%;
   /*background-color: #999999;*/
+  
+  /*Scroll bar styles*/
+  /*scrollbar-face-color: #eee;
+  scrollbar-highlight-color: #fff;
+  scrollbar-3dlight-color: #ccc;
+  scrollbar-darkshadow-color: #fff;
+  scrollbar-shadow-color: #aaa;
+  scrollbar-arrow-color: #000000;
+  scrollbar-track-color: #eee;*/
 }
 
 input {
@@ -264,9 +273,8 @@ input {
   form {
     margin-bottom: 7px;
     input {
-      /*width: 225px;
-      height: 35px;*/
       margin-bottom: 6px;
+      border: 1px solid #cccccc;
       
       @include input-form(300, .85rem, 225px, 35px);
     }
@@ -334,13 +342,12 @@ button:focus {
     border-radius: 1px;
     
     &:hover{
-      color: #e6e6e6;
-      background-color: #333333;
+      /*color: #e6e6e6;*/
+      background-color: #f2f2f2;
       cursor: pointer;
     }
   }
 }
-
 
 .content {
   position: relative;
@@ -352,20 +359,31 @@ button:focus {
   clear: both;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #fcfcfc;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #444;
+}
+
 /* Sidebar */
 .sidebar {
   z-index: 10;
   position: fixed;
-  width: 150px;
+  width: 120px;
   background-color: #333;
   float: left;
   color: #FFFFFF;
   display: block;
   height: 100%;
+  overflow-y:scroll;
+  
+
 }
 
 .add-symbol-form input {
-  @include input-form(300, .85rem, 100%, 45px);
+  @include input-form(300, .85rem, 100%, 35px);
   /*border: none;*/
   border-style: solid;
   border-width: 1px 1px 0 0;
@@ -385,8 +403,7 @@ button:focus {
   border: none;
 }
 .add-symbol-form button:hover {
-  color: #e6e6e6;
-  background-color: #808080;
+  background-color: #595959;
 }
 .add-symbol-form p {
   padding: 5px 5px 5px 7px;
@@ -404,15 +421,32 @@ button:focus {
 }
 
 .stock-item {
-  width: 150px;
+  width: 115px;
   display: inline-block;
   height: 27px;
+  
+  .delete-stock {
+    display: inline-block;
+    width: 100px;
+    margin: 2px 0 7px 7px;
+    background-color: #595959;
+    border-radius: 2px;
+  }
+  .delete-stock:hover {
+    cursor: pointer;
+    background-color: #737373;
+  }
+  .delete-stock p {
+    text-align: center;
+    font-size: 11px;
+  }
 }
 .stock-item:hover {
-  width: 150px;
   background-color: #444;
-  display: inline-block;
-  height: 27px;
+}
+
+.remove-item-height {
+  height: 60px;
 }
 
 .stock-symbol p {
@@ -449,7 +483,7 @@ button:focus {
 
 /* Chart */
 .chart {
-  padding-left: 150px;
+  padding-left: 120px;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -458,30 +492,53 @@ button:focus {
   float: right;
 }
 .chart-menu {
-  height: 45px;
+  height: 35px;
   background-color: #f2f2f2;
+  display: flex;
 }
-.refresh-button {
-  width: 45px;
+.chart-button {
+  width: 35px;
   heigth: 100%;
-  padding: 6px 0 0 5px;
-}
-.refresh-button:hover {
-  background-color: #333333;
-  cursor: pointer;
+  padding: 3px 0 0 3px;
   .refresh {
-    background-color: white;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
+    mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #333;
+  }
+  .list {
+    width: 30px;
+    height: 30px;
+    margin-top: -1px;
+    display: inline-block;
+    -webkit-mask: url(http://brettcelestre.com/code/stocksight/navicon.svg) no-repeat 50% 50%;
+    mask: url(http://brettcelestre.com/code/stocksight/navicon.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #333; 
+  }
+  .sight {
+    width: 30px;
+    height: 30px;
+    margin-top: -1px;
+    display: inline-block;
+    -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-eye.svg) no-repeat 50% 50%;
+    mask: url(http://brettcelestre.com/code/stocksight/ios-eye.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #333; 
   }
 }
-.refresh {
-  width: 36px;
-  height: 36px;
-  display: inline-block;
-  -webkit-mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
-  mask: url(http://brettcelestre.com/code/stocksight/ios-refresh-empty.svg) no-repeat 50% 50%;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  background-color: #333;
+.chart-button:hover {
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+.chart-button-selected {
+  background-color: #d9d9d9;
 }
 .chart-content {
   /*width: 100%;*/
