@@ -10,10 +10,21 @@ angular.module('StockSight.main.stock', [])
       url: '/stock',
       data: JSON.stringify(data)
     }).then(function(data) {
-      // If success
-      
-      // If stock symbol not found
-      
+      return data;
+    }, function(error) {
+      return error;
+    });
+  };
+  
+  // Sends stock symbol to /remove
+  var removeStock = function(data) {
+    console.log('removeStock service: ', data);
+    return $http({
+      method: 'DELETE',
+      url: '/stock',
+      data: JSON.stringify(data),
+      headers: {'Content-Type': 'application/json;charset=utf-8'}
+    }).then(function(data) {
       return data;
     }, function(error) {
       return error;
@@ -21,7 +32,8 @@ angular.module('StockSight.main.stock', [])
   };
 
   return {
-    addStock: addStock
+    addStock: addStock,
+    removeStock: removeStock
   };
   
 });

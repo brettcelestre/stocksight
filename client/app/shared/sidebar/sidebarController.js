@@ -1,7 +1,7 @@
 
 angular.module('StockSight.main.sidebar', [])
 
-.controller('SidebarController', function($scope, $state, Stock, Main) {
+.controller('SidebarController', function($scope, $rootScope, $state, Stock, Main) {
 
   // Stores new stock symbol from input
   $scope.symbol = '';
@@ -43,6 +43,7 @@ angular.module('StockSight.main.sidebar', [])
         }
       });
       
+      // If symbol is not already in users collection
       if ( flag === false ) {
         Stock.addStock({'symbol': $scope.symbol})
           .then(function(data) {
@@ -52,6 +53,16 @@ angular.module('StockSight.main.sidebar', [])
               Main.userObject.stocks.push(data.data.symbol);
               // Clears input
               $scope.symbol = '';
+              
+              // Check which view user is currently using
+              if ( Main.userObject.view === 'chart' ) {
+                // Refresh chart view
+                $rootScope.$emit('RefreshChart', {});
+              } else if ( Main.userObject.view === 'summary' ) {
+                // Refreshes summary view
+                $rootScope.$emit('RefreshSummary', {});
+              }
+              
             } else {
             // Failure message
               $scope.symbol404 = 'Could not find ' + $scope.symbol;
@@ -67,6 +78,40 @@ angular.module('StockSight.main.sidebar', [])
       // Displays no symbol entered warning
       $noSymbol.setAttribute("style", "display: show;");
     }
+  };
+  
+  $scope.removeStockConfirm = function(symbol) {
+    // Selects symbols DOM elements
+    var idItem = 'item-' + symbol;
+    var $item = document.getElementById(idItem);
+    var idRemove = 'remove-' + symbol;
+    var $id = document.getElementById(idRemove);
+    // Toggles remove symbol button
+    if ( $item.classList.value.split(' ').indexOf('remove-item-height') > 0 ) {
+      // Shrinks height of stock item
+      $item.className = 'stock-item ng-scope';
+      // Hides remove button
+      $id.setAttribute("style", "display: none;");
+    } else {
+      // Expands height of stock item
+      $item.className += ' remove-item-height';
+      // Shows remove button
+      $id.setAttribute("style", "display: show;");
+    }
+  };
+  
+  $scope.removeStock = function(symbol) {
+    // Call removeSymbol API Route
+    Stock.removeStock({'symbol': symbol})
+      .then(function(data) {
+        // Success message
+
+      })
+      .catch(function(data) {
+        console.error('Error with login: ', data);
+      });
+      
+      // Then Update users symbol array in Main service
   };
   
   // Clears error warnings on input change

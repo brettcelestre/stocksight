@@ -2,7 +2,7 @@
 
   <div class='add-symbol-box'>
     <form class='add-symbol-form' ng-submit='addStock()'>
-      <input type='text' placeholder='Enter Stock Symbol' ng-model='symbol' ng-change='clearWarnings()'></input>
+      <input type='text' placeholder='Symbol' ng-model='symbol' ng-change='clearWarnings()'></input>
       <p id='duplicate-symbol' style="display:none;">{{ duplicateError }}</p>
       <p id='symbol-not-found' style="display:none;">{{ symbol404 }}</p>
       <p id='no-symbol-string' style="display:none;">{{ noSymbol }}</p>
@@ -11,14 +11,20 @@
   </div>
   
   <div class='stock-panel'>
-    <div ng-repeat='symbol in stocks' class='stock-item'>
+    <div ng-repeat='symbol in stocks' class='stock-item' id='item-{{symbol}}'>
+      
       <div class='stock-symbol'>
         <p>{{ symbol }}</p>
       </div>
-      <div class='minus-button'>
-        <div class='minus remove-stock-btn' ng-click='removeStock(symbol)'></div>
+      
+      <div class='minus-button' title='Remove'>
+        <div class='minus remove-stock-btn' ng-click='removeStockConfirm(symbol)'></div>
       </div>
-      <!-- <button type='button' class='remove-stock-btn' ng-click='removeStock(symbol)'>-</button> -->
+      
+      <div class='delete-stock' style="display:none;" id='remove-{{ symbol }}' ng-click='removeStock(symbol)'>
+        <p>Remove {{ symbol }}?</p>
+      </div>
+
     </div>
   </div>
 
