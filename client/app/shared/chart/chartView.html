@@ -1,9 +1,28 @@
 <div ng-controller='ChartController'>
 
   <div class='chart-menu'>
-    <div class='refresh-button' ng-click='refreshChart()'>
+    <div class='chart-button' ng-click='refreshChart()' title='Refresh'>
       <div class='refresh'></div>
     </div>
+    
+    <!-- Chart View -->
+    <!-- ion-ios-drag -->
+    <!-- ion-connection-bars -->
+    
+    <!-- List
+    ion-navicon -->
+    <div class='chart-button' ng-click='viewSum()' title='Tables'>
+      <div class='list'></div>
+    </div>
+    
+    <!-- Chart
+    ion-stats-bars -->
+    
+    <div class='chart-button' ng-click='viewSum()' title='Performance'>
+      <div class='sight'></div>
+    </div>
+    
+    
   </div>
   
   <div class='chart-content'>

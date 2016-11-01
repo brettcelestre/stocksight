@@ -1,7 +1,7 @@
 
 angular.module('StockSight.main.chart', [])
 
-.controller('ChartController', function($scope, $state, Main, Chart) {
+.controller('ChartController', function($scope, $rootScope, $state, Main, Chart) {
   
   // Stores all stock data for chart  
   $scope.chartData = [];
@@ -20,7 +20,7 @@ angular.module('StockSight.main.chart', [])
       .then(function(data){
         // If successful request
         if (data.status === 200) {
-          // console.log('Chart Stock Data: ', data.data);
+          console.log('Chart Stock Data: ', data.data);
           // Hide Spinner
           $spinner.style.display = "none";
           // Show Chart
@@ -36,6 +36,10 @@ angular.module('StockSight.main.chart', [])
         console.error('Error with login: ', data);
       });
   };
+  
+  $rootScope.$on("RefreshChart", function(){
+    $scope.refreshChart();
+  });
   
   // init function calls refreshChart on view load
   $scope.init = function(){
