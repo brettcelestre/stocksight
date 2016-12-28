@@ -9,68 +9,92 @@
     <!-- ion-ios-drag -->
     <!-- ion-connection-bars -->
     
-    <!-- List
-    ion-navicon -->
-    <div class='chart-button' ng-click='viewSum()' title='Tables'>
+    <!-- List -->
+    <!-- <div class='chart-button' ng-click='viewSum()' title='Tables'>
       <div class='list'></div>
-    </div>
+    </div> -->
     
-    <!-- Chart
-    ion-stats-bars -->
-    
-    <div class='chart-button' ng-click='viewSum()' title='Performance'>
+    <!-- Chart -->
+    <!-- <div class='chart-button' ng-click='viewSum()' title='Performance'>
       <div class='sight'></div>
-    </div>
-    
+    </div> -->
     
   </div>
   
   <div class='chart-content'>
     
-    <!-- <div class='stock-chart-display'> -->
-      <div id='spinner'>
-        <img src='http://brettcelestre.com/code/stocksight/spinner.svg' alt='Loading' width='50px' height='50px'>
-      </div>
-    
-      <div id='chart'>
-        <table class='stock-reading'>
-          <thead class='chart-header'>
-            <tr>
-              <td>Mutual Fund</td>
-              <td>Symbol</td>
-              <td>% Change</td>
-              <!-- <td>10YR</td>
-              <td>5YR</td>
-              <td>3YR</td>
-              <td>1YR</td> -->
-              <td>52 W High</td>
-              <td>52 W Low</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class='chart-body' ng-repeat='stock in chartData'>
-              <td class='bar-right'>{{ stock.Name }}</td>
-              <td class='bar-right'>{{ stock.Symbol }}</td>
-              <td class='bar-right'>{{ stock.PercentChange }}</td>
-              <!-- <td></td>
-              <td></td>
-              <td></td>
-              <td></td> -->
-              <td class='bar-right'>{{ stock.YearHigh }}</td>
-              <td>{{ stock.YearLow }}</td>
-            </tr>
-          </tbody>
-        </table>
-          
-        <!-- {{ stock.Name }}<br> -->
-        <!-- {{ stock.Symbol }}<br> -->
-        <!-- {{ stock.PercentChange }}<br> -->
-        <!-- {{ stock.YearHigh }}<br>
-        {{ stock.YearLow }}<br> -->
-        <!-- <h6>-------------</h6> -->
-        
-      </div>
-    <!-- </div> -->
+    <div id='spinner'>
+      <img src='http://brettcelestre.com/code/stocksight/spinner.svg' alt='Loading' width='50px' height='50px'>
+    </div>
+  
+    <div id='chart'>
+      <table class='stock-reading'>
+        <thead class='chart-header'>
+          <tr>
+            <td>Fund Name</td>
+            <td>Symbol</td>
+            <td>1d</td>
+            <td>1w</td>
+            <td>1m</td>
+            <td>ytd</td>
+            <td>1y</td>
+            <td>3y</td>
+            <td>5y</td>
+            <td>10y</td>
+            <td>15y</td>
+            <td>10y growth</td>
+            <td>52 week high</td>
+            <td>52 week low</td>
+            <td>52 High - low % gap</td>
+              <!-- = ( 52w high - 52w low ) / 52w high -->
+            <td>Current Price</td>
+            <td>Current Price versus % diff of high</td>
+              <!-- = ( 52w high - current price ) / 52w high -->
+            <td>Current Price off 52w low</td>
+              <!-- = "52w high - low gap" - "Current Price versus % diff of high" -->
+            <!-- <td>Buy Price</td> -->
+              <!-- - MANUALLY ENTERED
+                - Create INT mongoose schema
+                
+                    - If I can find a historical daily price for the last 6 months, find lowest, and 
+                    automatically make that the buy price. -->
+            <!-- <td>Buy Price % gap from current price</td> -->
+              <!-- = ( Current Price - Buy Price ) / Buy Price -->
+            <!-- <td>Buy Price % Gap from 52w high</td> -->
+              <!-- = ( 52w high - Buy Price ) / 52w high -->
+          </tr>
+        </thead>
+        <tbody class='chart-body-scroll'>
+          <tr class='chart-body' ng-repeat='stock in chartData'>
+            <td class='bar-right'>{{ stock.Name }}</td>
+            <td class='bar-right'>{{ stock.Symbol }}</td>
+            <td class='bar-right'>{{ stock['1-day'] }}</td>
+            <td class='bar-right'>{{ stock['1-week'] }}</td>
+            <td class='bar-right'>{{ stock['1-month'] }}</td>
+            <td class='bar-right'>{{ stock.ytd | numberEx:2 }}</td>
+            <td class='bar-right'>{{ stock['1-year'] }}</td>
+            <td class='bar-right'>{{ stock['3-year'] }}</td>
+            <td class='bar-right'>{{ stock['5-year'] }}</td>
+            <td class='bar-right'>{{ stock['10-year'] }}</td>
+            <td class='bar-right'>{{ stock['15-year'] }}</td>
+            <td class='bar-right'>{{ stock['10-year-growth'] }}</td>
+            <td class='bar-right'>{{ stock.YearHigh | numberEx:2 }}</td>
+            <td class='bar-right'>{{ stock.YearLow | numberEx:2 }}</td>
+            <td class='bar-right'>{{ ( stock.YearHigh - stock.YearLow ) / stock.YearHigh | numberEx:2 }}</td>
+            <td class='bar-right'>{{ stock.DaysLow | numberEx:2 }}</td>
+            <td class='bar-right'>{{ ( stock.YearHigh - stock.DaysLow ) / stock.YearHigh | numberEx:2 }}</td>
+            <td class='bar-right'>{{ (( stock.YearHigh - stock.YearLow ) / stock.YearHigh) - (( stock.YearHigh - stock.DaysLow ) / stock.YearHigh) | numberEx:2 }}</td>
+            <!-- <td class='bar-right'>NA</td> -->
+            <!-- <td class='bar-right'>NA</td> -->
+            <!-- <td class='bar-right'>NA</td> -->
+            
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
   </div>
+  
+  <div class='bottom-spacer-chart'></div>
   
 </div>
