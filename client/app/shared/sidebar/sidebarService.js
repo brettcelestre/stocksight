@@ -18,7 +18,6 @@ angular.module('StockSight.main.stock', [])
   
   // Sends stock symbol to /remove
   var removeStock = function(data) {
-    console.log('removeStock service: ', data);
     return $http({
       method: 'DELETE',
       url: '/stock',
