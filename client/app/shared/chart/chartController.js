@@ -3,8 +3,8 @@ angular.module('StockSight.main.chart', [])
 
 .controller('ChartController', function($scope, $rootScope, $state, Main, Chart) {
   
-  // Stores all stock data for chart  
-  $scope.chartData = [];
+  // Stores all stock data for chart
+  $scope.chartData = {};
 
   // Calls /chart API to retrieve all stock data
   $scope.refreshChart = function(){  
@@ -36,6 +36,17 @@ angular.module('StockSight.main.chart', [])
         console.error('Error with login: ', data);
       });
   };
+  
+  // Removes symbol from chartData array
+  $rootScope.$on('removeSymbolFromChartData', function(event, symbol) {
+    for ( var key in $scope.chartData ) {
+      // Finds symbol inside chartData
+      if ( key === symbol ) {
+        // Deletes symbol from chartData
+        delete $scope.chartData[key];
+      }
+    }
+  });
   
   $rootScope.$on("RefreshChart", function(){
     $scope.refreshChart();
