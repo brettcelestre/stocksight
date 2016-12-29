@@ -100,7 +100,6 @@ angular.module('appRoutes', [])
       .then(function(data) {
         // If someone is logged in
         if (data.data.user) {
-          console.log('You are logged in as: ', data.data.user);
           // Switches state to main
           $state.go('main');
         }
