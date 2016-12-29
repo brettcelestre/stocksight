@@ -4,6 +4,7 @@
 */
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Wire+One);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -162,6 +163,7 @@ ul, .ul {
 /* FONTS */
 /*Stock Sight Title*/
 /*Form and Main Fonts*/
+/*Table Headers - Wire One*/
 /* Mixins */
 html, body {
   height: 100%;
@@ -170,6 +172,8 @@ html, body {
 
 body {
   min-height: 100%;
+  /*overflow: -moz-scrollbars-vertical;*/
+  /*overflow: scroll;*/
   /*background-color: #999999;*/
   /*Scroll bar styles*/
   /*scrollbar-face-color: #eee;
@@ -312,12 +316,13 @@ button:focus {
 
 ::-webkit-scrollbar {
   width: 5px;
-  background-color: #fcfcfc; }
+  background-color: #fcfcfc;
+  -webkit-appearance: none; }
 
 ::-webkit-scrollbar-thumb {
   background-color: #444; }
 
-/* Sidebar */
+/* ==== Sidebar ==== */
 .sidebar {
   z-index: 10;
   position: fixed;
@@ -422,7 +427,10 @@ button:focus {
   .minus-button:hover .minus {
     cursor: pointer; }
 
-/* Chart */
+.bottom-spacer-sidebar {
+  height: 60px; }
+
+/* ==== Chart ==== */
 .chart {
   padding-left: 120px;
   position: fixed;
@@ -430,12 +438,20 @@ button:focus {
   height: 100%;
   display: block;
   background-color: #fcfcfc;
-  float: right; }
+  float: right;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  /*overflow: auto;*/
+  overflow: -moz-scrollbars-vertical;
+  /*white-space: nowrap;*/ }
 
 .chart-menu {
   height: 35px;
   background-color: #f2f2f2;
-  display: flex; }
+  display: flex;
+  width: 100%;
+  position: fixed;
+  margin-top: -30px; }
 
 .chart-button {
   width: 35px;
@@ -479,14 +495,26 @@ button:focus {
   background-color: #d9d9d9; }
 
 .chart-content {
-  /*width: 100%;*/
-  max-width: 1500px;
-  padding: 10px 15px 10px 15px; }
+  width: 100%;
+  min-width: 1200px;
+  max-width: 2000px;
+  padding: 10px 15px 10px 15px;
+  margin-top: 30px;
+  /*position: fixed;  */
+  /*overflow-x: scroll;*/
+  /*white-space: nowrap;*/ }
+  .chart-content #chart {
+    /*background-color: red;*/
+    /*overflow-x: scroll;*/
+    /*overflow-y: scroll;*/ }
 
 .stock-reading {
   width: 100%;
   min-width: 600px;
-  max-width: 700px; }
+  /*max-width: 700px;*/ }
+  .stock-reading .chart-body-scroll {
+    overflow-x: scroll;
+    overflow-y: scroll; }
 
 .stock-read thead {
   padding-bottom: 33px; }
@@ -498,14 +526,16 @@ button:focus {
   padding: 0;
   margin: 0;
   letter-spacing: -0.01rem;
-  color: #333; }
+  color: #333;
+  /*@include chart-headers('Wire One', 1.5rem, 300, 0, 0, -.01rem, #333);*/ }
 
 .chart-header td {
   padding-left: 3px;
   padding-bottom: 5px;
   border-style: solid;
-  border-width: 0 0px 1px 0;
-  border-color: #a6a6a6; }
+  border-width: 0 1px 1px 0;
+  /*border-color: #a6a6a6;*/
+  border-color: #d9d9d9; }
 
 tbody:before {
   content: "-";
@@ -526,8 +556,9 @@ tbody:before {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 3px;
+  padding-right: 3px;
   border-style: solid;
-  border-width: 0 0px 1px 0;
+  border-width: 0 1px 1px 0;
   border-color: #d9d9d9; }
 
 .chart-body:hover {
@@ -538,6 +569,9 @@ tbody:before {
 .chart-body td:nth-child(4),
 .chart-body td:nth-child(5) {
   padding-left: 9px; }
+
+.bottom-spacer-chart {
+  height: 40px; }
 
 /*@include chart-text($size, $weight, $padding, $margin, $spacing, $color)*/
 /*Open+Sans:300,400,600,700)*/
