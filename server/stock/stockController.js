@@ -55,19 +55,27 @@ module.exports = {
   },
   
   deleteSymbol: function(req, res) {
-    console.log('Deleting Symbol: ', req.body.symbol);
+    var removeSymbol = req.body.symbol;
+    console.log('Deleting Symbol: ', removeSymbol);
+      
     // Finds user by ID
     User.update(
         // Finds user by id
         {'_id' : req.session.user._id},
         // Pulls targeted symbol from collection
-        { $pull: { 'symbol': req.body.symbol } })
+        { $pull: { 'symbol': removeSymbol } })
       .exec(function(err, data) {
         if (!data) {
-          console.log('  > Error Deleting: ', req.body.symbol);
+          console.log('  > Error Deleting: ', removeSymbol);
           res.status(404).send({error: 'User not found'});
         } else {
-          console.log('  > Successfully Deleted: ', req.body.symbol);
+          // Remove stock from req.session.user.symbol array
+          for ( var i = req.session.user.symbol.length-1; i >= 0; i-- ) {
+            if ( req.session.user.symbol[i] === removeSymbol) {
+              req.session.user.symbol.splice(i, 1);
+            }
+          }
+          console.log('  > Successfully Deleted: ', removeSymbol);
           res.status(200).send(data);
         }
     })
