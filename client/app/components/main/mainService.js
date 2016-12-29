@@ -38,11 +38,21 @@ angular.module('StockSight.main.service', [])
       return error; 
     });
   };
+  
+  // Delete Stock from userObject
+  var deleteStock = function(symbol){
+    for ( var i = userObject.stocks.length-1; i >= 0; i-- ) {
+      if ( userObject.stocks[i] === symbol) {
+        userObject.stocks.splice(i, 1);
+      }
+    }
+  };
 
   return {
     userObject: userObject,
     checkSession: checkSession,
-    logout: logout
+    logout: logout,
+    deleteStock: deleteStock
   };
   
 });
