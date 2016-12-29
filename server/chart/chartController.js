@@ -34,7 +34,7 @@ module.exports = {
       // Morning Star Main API - Retrieves: 10 year | 5 year | 3 year | 1 year | 1 month | 1 week | 1 day | ytd | symbol
       APIfunctions.push(
         function(callback) {
-          request('https://extraction.import.io/query/extractor/89870cad-f5d4-4aea-a32c-9636632d1799?_apikey=e83763dad58e450887c8935ba4166dd7ce43c34899f5718cd8e16877040060c1865fd61c1ed71ded4fb3fd7864b82a4fcb14e9d74aa567e88c20982b4f814ca870c0b7b8eb0e46f0992612fde4d67fca&url=http%3A%2F%2Fperformance.morningstar.com%2Ffund%2Fperformance-return.action%3Ft%3D' + val + '%26region%3Dusa%26culture%3Den-US', function(error, response, body){
+          request('https://extraction.import.io/query/extractor/439fe8e4-fcb3-472a-a03d-6c90da94a2a8?_apikey=6597f163bbf74909813f659204b6066a2bdd0dd37460dd696eee23e324fb6447c59b7c4292ae98430ba815c1faf781d979996266132c4b00b46b649f30f7caf0c275073d93abf5f810be2936f6cebc99&url=http%3A%2F%2Fperformance.morningstar.com%2Ffund%2Fperformance-return.action%3Ft%3D' + val + '%26region%3Dusa%26culture%3Den-US', function(error, response, body){
             // Checks for errors
             if (error) {
               console.error('error with SYMBOL check', error);  
@@ -51,7 +51,7 @@ module.exports = {
       // Morning Star API - Retrieves: 10 year growth
       APIfunctions.push(
         function(callback) {
-          request('https://extraction.import.io/query/extractor/5a947525-c80a-4bc6-ae12-ce1890d09984?_apikey=e83763dad58e450887c8935ba4166dd7ce43c34899f5718cd8e16877040060c1865fd61c1ed71ded4fb3fd7864b82a4fcb14e9d74aa567e88c20982b4f814ca870c0b7b8eb0e46f0992612fde4d67fca&url=http%3A%2F%2Fquotes.morningstar.com%2Fchart%2Ffund%2Fchart%3Ft%3D' + val + '%26region%3Dusa%26culture%3Den-US', function(error, response, body){
+          request('https://extraction.import.io/query/extractor/074277cc-def8-4921-a6d4-8c6e96ba7025?_apikey=6597f163bbf74909813f659204b6066a2bdd0dd37460dd696eee23e324fb6447c59b7c4292ae98430ba815c1faf781d979996266132c4b00b46b649f30f7caf0c275073d93abf5f810be2936f6cebc99&url=http%3A%2F%2Fquotes.morningstar.com%2Fchart%2Ffund%2Fchart%3Ft%3D' + val + '%26region%3Dusa%26culture%3Den-US', function(error, response, body){
             // Checks for errors
             if (error) {
               console.error('error with SYMBOL check', error);  

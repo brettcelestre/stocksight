@@ -95,13 +95,14 @@ angular.module('appRoutes', [])
       }
     });
     
+    
     // Checks to verify whether someone is logged in
     Main.checkSession()
       .then(function(data) {
         // If someone is logged in
         if (data.data.user) {
           // Switches state to main
-          $state.go('main');
+          // $state.go('main');
         }
       });
       
