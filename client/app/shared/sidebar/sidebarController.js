@@ -53,7 +53,7 @@ angular.module('StockSight.main.sidebar', [])
               Main.userObject.stocks.push(data.data.symbol);
               // Clears input
               $scope.symbol = '';
-              
+
               // Check which view user is currently using
               if ( Main.userObject.view === 'chart' ) {
                 // Refresh chart view
@@ -101,17 +101,23 @@ angular.module('StockSight.main.sidebar', [])
   };
   
   $scope.removeStock = function(symbol) {
-    // Call removeSymbol API Route
+    // Calls Stock.removeSymbol API Route to delete from DB
     Stock.removeStock({'symbol': symbol})
       .then(function(data) {
-        // Success message
-
+        if ( data.status === 200 ) {
+          // Calls Main.removeSymbol to remove stock from userObject in Main Service
+          Main.deleteStock(symbol);
+          // Emits call to 'removeSymbolFromChartData' inside chart controller
+          $rootScope.$emit('removeSymbolFromChartData', symbol);
+        } else if ( data.status === 404 ) {
+          // Display Error message
+          alert('There was an error removing this stock');
+        }
       })
       .catch(function(data) {
         console.error('Error with login: ', data);
       });
       
-      // Then Update users symbol array in Main service
   };
   
   // Clears error warnings on input change
