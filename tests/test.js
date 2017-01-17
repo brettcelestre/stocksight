@@ -5,6 +5,8 @@ var expect = require('chai').expect;
 var server = require('../server/serverDev.js');
 var supertest = require('supertest');
 
+var User = require('../server/signup/signupModel.js');
+
 // this will handle our HTTP requests
 var request = supertest.agent(server);
 
@@ -15,6 +17,33 @@ describe("Server Routes", function() {
       request
         .get('/')
         .expect(200, /<div/, done);
+    });
+  });
+  
+  describe("POST /signup", function() {
+    // Delete test user after it is created
+    after(function() {
+      User.findOneAndRemove({username: 'test123456'}, function(err) {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log('    >>> Test user deleted.');
+        }
+      });
+    });
+
+    it("should create and return a new user", function(done) {
+      var testUser = {
+        username: "test123456",
+        password: 1234,
+      };
+      request
+        .post('/signup')
+        .send(testUser)
+        .expect(201, {
+          username: 'test123456', 
+          symbol: []
+        }, done);
     });
   });
   
