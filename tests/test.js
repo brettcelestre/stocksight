@@ -18,8 +18,8 @@ describe("Server Routes", function() {
     });
   });
   
-  describe("POST /auth", function() {
-    it("should return username and symbols", function(done) {
+  describe("POST /auth/login", function() {
+    it("should return 200 status with username and symbols", function(done) {
       var userData = {
         username: 'test9',
         password: '1234'
@@ -27,15 +27,25 @@ describe("Server Routes", function() {
       request
         .post('/auth/login')
         .send(userData)
-        .expect(function(res) {
-          res.username = 'test9';
-          res.stocks = ['E']
-        })
         .expect(200, {
           'username': 'test9',
           'stocks': ['E']
         }, done);
     });
+    
+    it("should return 404 status with wrong password error", function(done) {
+      var userData = {
+        username: 'test9',
+        password: 'badpassword'
+      };
+      request
+        .post('/auth/login')
+        .send(userData)
+        .expect(404, {
+          error: 'password does not match'
+        }, done);
+    });
+    
   });
   
 });
