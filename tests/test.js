@@ -46,6 +46,19 @@ describe("Server Routes", function() {
         }, done);
     });
     
+    it("should return 404 status with error message", function(done) {
+      var userData = {
+        username: 'asgeagobas;og',
+        password: 'admin'
+      };
+      request
+        .post('/auth/login')
+        .send(userData)
+        .expect(404, {
+          error: 'User not found'
+        }, done);
+    });
+    
   });
   
 });
