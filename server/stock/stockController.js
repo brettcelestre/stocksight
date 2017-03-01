@@ -35,7 +35,7 @@ module.exports = {
             console.error('Error from server/stockController - addSymbol:', err);
             res.status(500).send(err);
           } else {
-            console.log('Stock symbol ' + newSymbol + ' has been added successfully.');
+            // console.log('Stock symbol ' + newSymbol + ' has been added successfully.');
             var userData = {
               symbol: newSymbol.symbol
             }
