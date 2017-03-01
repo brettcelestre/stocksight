@@ -25,7 +25,7 @@ module.exports = {
             }
             // Parses body into JSON
             var data = JSON.parse(body);
-            console.log('CC Yahoo API Data: ', data);
+            // console.log('CC Yahoo API Data: ', data);
             // Sends whole stock quote data back
             callback(null, data.query.results.quote);
           });
@@ -95,7 +95,7 @@ module.exports = {
           for ( var key in val ) {
             finalResults[val.Symbol][key] = val[key];
           }
-          console.log('finalResults so far: ', finalResults);
+          // console.log('finalResults so far: ', finalResults);
         // It's from Morning Star Main API
         } else if ( val.group[0]['1-day'] ) {
           // Pushes values into finalResult symbol object

@@ -22,7 +22,7 @@ module.exports = {
       var data = JSON.parse(body);
 
       // If valid, add symbol to user's symbol in DB
-      if ( data.query.results.quote.Name !== null ) {
+      if ( data.query.results.quote.Name !== null && data.query.results.YearLow && data.query.results.YearHigh ) {
         // Creates data object for Stock schema
         var symbolData = {'symbol': reqSymbol};
         // Adds user id to Stock schema
