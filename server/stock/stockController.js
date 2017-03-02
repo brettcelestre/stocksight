@@ -20,9 +20,9 @@ module.exports = {
       }
       // Parses body into JSON
       var data = JSON.parse(body);
-
+      console.log('DATA: ', data.query.results);
       // If valid, add symbol to user's symbol in DB
-      if ( data.query.results.quote.Name !== null && data.query.results.YearLow && data.query.results.YearHigh ) {
+      if ( data.query.results.quote.Name && data.query.results.quote.YearLow && data.query.results.quote.YearHigh ) {
         // Creates data object for Stock schema
         var symbolData = {'symbol': reqSymbol};
         // Adds user id to Stock schema
