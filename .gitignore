@@ -34,6 +34,7 @@ node_modules
 
 ### Bundle ###
 client/bundle.js
+
 ### Images ###
 client/assets/imgs/
 
