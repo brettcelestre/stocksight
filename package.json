@@ -47,6 +47,8 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-mongodb-data": "^2.1.0",
-    "gulp-sass": "^2.3.2"
+    "gulp-sass": "^2.3.2",
+    "path": "^0.12.7",
+    "webpack": "^1.14.0"
   }
 }
