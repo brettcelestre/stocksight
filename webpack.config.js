@@ -1,5 +1,4 @@
-
-var path    = require('path');
+var path = require('path');
 var webpack = require('webpack');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var buildPath = path.resolve(__dirname, 'client');
