@@ -35,6 +35,9 @@ node_modules
 ### Bundle ###
 client/bundle.js
 
+### HTML Bits ###
+NOTES-EXTRAS.html
+
 ### Images ###
 client/assets/imgs/
 
