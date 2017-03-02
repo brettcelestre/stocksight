@@ -32,6 +32,8 @@ node_modules
 ### Config ###
 **/config/config.js
 
+### Bundle ###
+client/bundle.js
 ### Images ###
 client/assets/imgs/
 
