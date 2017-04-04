@@ -5,8 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha tests/test.js",
-    "postinstall": "bower cache clean && bower install",
-    "start": "concurrently \"gulp --watch\" \"node server/server.js\""
+    "postinstall": "bower cache clean && bower install && gulp --watch",
+    "start": "node server/server.js"
   },
   "engines": {
     "node": "4.4.5"
