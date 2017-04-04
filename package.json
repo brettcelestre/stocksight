@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha tests/test.js",
-    "postinstall": "bower install && webpack --watch",
+    "postinstall": "bower install",
     "start": "node server/server.js"
   },
   "repository": {
