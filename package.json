@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha tests/test.js",
-    "postinstall": "bower cache clean && bower install && gulp --watch",
+    "postinstall": "bower cache clean && bower install && webpack --watch",
     "start": "node server/server.js"
   },
   "engines": {
@@ -49,6 +49,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-mongodb-data": "^2.1.0",
+    "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^2.3.2",
     "path": "^0.12.7",
     "webpack": "^1.14.0"
