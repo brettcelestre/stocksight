@@ -10,7 +10,7 @@ module.exports = {
     // path: path.join(__dirname, 'client'),
     path: buildPath,
     filename: 'bundle.js',
-    exclude: /(node_modules|bower_components)/,
+    // exclude: /(node_modules|bower_components)/,
     publicPath: '/build/' //the server will listen in on this path and then proxy Webpack
   },
   module: {
